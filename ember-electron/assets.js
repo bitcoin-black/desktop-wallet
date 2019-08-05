@@ -30,7 +30,6 @@ const { version, productName } = require('../package');
 const { app } = electron;
 
 const USER_AGENT = `${productName.replace(/\s+/g, '')}/${version}`;
-const SIGNATURE_HEADER = Symbol.for('x-amz-meta-signature');
 
 const createProgressStream = (length, onProgress) => {
   const progress = progressStream({ length, time: 250 });
@@ -38,9 +37,9 @@ const createProgressStream = (length, onProgress) => {
   return progress;
 };
 
-const verifyAsset = async (url) => {
+const verifyAsset = async url => {
   log.info('Downloading asset signature:', url);
-  return true
+  return true;
 };
 
 const extractAsset = async (savePath, extractDir, onProgress) => {

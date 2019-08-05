@@ -30,7 +30,7 @@ export default function() {
   this.passthrough('http://localhost:7076');
 
   // Beta network
-  this.passthrough('http://localhost:55000');
+  this.passthrough('http://localhost:35000');
 
   // Test network
   this.passthrough('http://localhost:45000');

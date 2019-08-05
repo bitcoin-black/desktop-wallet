@@ -14,7 +14,7 @@ module.exports = (/* environment */) => ({
     this will be the config used
     */
   default: {
-    rpcHost: 'http://localhost:55000',
+    rpcHost: 'http://localhost:35000',
     rpcNamespace: null,
   },
 

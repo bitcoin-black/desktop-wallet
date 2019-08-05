@@ -11,7 +11,7 @@
     },
     "node": {
         "version": "17",
-        "peering_port": "54000",
+        "peering_port": "34000",
         "bootstrap_fraction_numerator": "1",
         "receive_minimum": "1000000000000000000000000",
         "logging": {
