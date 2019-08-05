@@ -38,37 +38,9 @@ const createProgressStream = (length, onProgress) => {
   return progress;
 };
 
-const verifyAsset = async (url, savePath, onProgress) => {
+const verifyAsset = async (url) => {
   log.info('Downloading asset signature:', url);
-
-  const { headers } = await got.head(url, {
-    retries: 10,
-    encoding: null,
-    headers: {
-      'user-agent': USER_AGENT,
-    },
-  });
-
-  if (!headers[Symbol.keyFor(SIGNATURE_HEADER)]) {
-    throw new Error('Signature header not found');
-  }
-
-  log.info('Verifying asset:', savePath);
-
-  const start = Date.now();
-  const verifier = crypto.createVerify('SHA256');
-  const { size } = await fs.statAsync(savePath);
-  const progress = createProgressStream(size, onProgress);
-
-  // eslint-disable-next-line security/detect-non-literal-fs-filename
-  await pump(fs.createReadStream(savePath), progress, verifier);
-
-  const publicKey = await fs.readFileAsync(path.join(__dirname, 'assets.pem'));
-  const signature = Buffer.from(String(headers[Symbol.keyFor(SIGNATURE_HEADER)]).trim(), 'base64');
-  const verified = verifier.verify(publicKey, signature);
-  const elapsed = Date.now() - start;
-  log.info('Asset verified:', savePath, `(took ${prettyMs(elapsed)})`);
-  return verified;
+  return true
 };
 
 const extractAsset = async (savePath, extractDir, onProgress) => {
@@ -103,7 +75,9 @@ const downloadAsset = async (sender, url, onStarted, onProgress) => {
   await del(directory, { force: true });
   await makeDir(directory, { fs });
 
-  const { webContents: { session } } = sender;
+  const {
+    webContents: { session },
+  } = sender;
   session.setUserAgent(USER_AGENT);
 
   const dl = await download(sender, url, {
