@@ -151,14 +151,14 @@ if (typeof protocol.registerSchemesAsPrivileged === 'function') {
     {
       scheme,
       privileges: {
-        secure: true,
+        secure: false,
         standard: true,
       },
     },
   ]);
 } else {
   // For compatibility with Electron < 5
-  protocol.registerStandardSchemes([scheme], { secure: true });
+  protocol.registerStandardSchemes([scheme], { secure: false });
 }
 
 // Uncomment the lines below to enable Electron's crash reporter

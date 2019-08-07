@@ -30,13 +30,14 @@ export default function() {
   this.passthrough('http://localhost:7076');
 
   // Beta network
-  this.passthrough('http://localhost:35000');
+  this.passthrough('http://localhost:15000');
 
   // Test network
   this.passthrough('http://localhost:45000');
 
   // Electron proxy
-  this.passthrough('https://localhost:17076/**');
+  this.passthrough('https://localhost:15000/**');
+  this.passthrough('http://localhost:15000/**');
 
   this.passthrough('https://api.coinmarketcap.com/**');
 

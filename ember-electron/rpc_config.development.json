@@ -1,8 +1,8 @@
 {
     "version": "1",
     "address": "::1",
-    "port": "35000",
-    "enable_control": "false",
+    "port": "15000",
+    "enable_control": "true",
     "max_json_depth": "20",
     "max_request_size": "33554432",
     "process": {

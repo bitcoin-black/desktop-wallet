@@ -55,7 +55,8 @@ export default class ApplicationAjaxService extends AjaxService.extend({
     if (isElectron) {
       const token = get(electron, 'authorizationToken');
       if (token) {
-        headers.Authorization = `Bearer ${token}`;
+        // headers.Authorization = `Bearer ${token}`;
+        console.log('Authorization Token Commented');
       }
     }
 

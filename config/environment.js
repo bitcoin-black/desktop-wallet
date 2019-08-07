@@ -84,7 +84,7 @@ module.exports = environment => {
     },
 
     rpc: {
-      host: 'http://localhost:35000',
+      host: 'http://localhost:15000',
       namespace: null,
     },
   };
@@ -99,7 +99,7 @@ module.exports = environment => {
     ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.contentSecurityPolicy['connect-src'].push('http://localhost:35000');
+    ENV.contentSecurityPolicy['connect-src'].push('http://localhost:15000');
   }
 
   if (environment === 'test') {
@@ -130,22 +130,14 @@ module.exports = environment => {
   if (isElectron) {
     ENV.contentSecurityPolicy['script-src'].push(
       "'sha256-bOpoN0CEbM1axa1+hv51a4JK31vrAOV7Cbze5rS9GJI='",
+    );
+    ENV.contentSecurityPolicy['script-src'].push(
       "'sha256-k8ysrhm1lqKyZpON3/YocPOUXAF4sGsu7JIycGDxCWw='",
     );
+    ENV.contentSecurityPolicy['connect-src'].push('http://localhost:15000');
 
-    ENV.contentSecurityPolicy['connect-src'].push('https://localhost:17076');
-
-    ENV.rpc.host = 'https://localhost:17076';
+    ENV.rpc.host = 'http://localhost:15000';
     ENV.rpc.namespace = 'rpc';
-
-    if (environment === 'test') {
-      ENV.contentSecurityPolicy['script-src'].push(
-        'http://localhost:7357/testem.js',
-        'http://testemserver/testem.js',
-      );
-
-      ENV.contentSecurityPolicy['frame-src'].push('http://localhost:7357', 'http://testemserver');
-    }
   }
 
   return ENV;

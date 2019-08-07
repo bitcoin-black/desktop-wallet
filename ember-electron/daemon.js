@@ -165,7 +165,7 @@ const startDaemon = async () => {
     const dhparam = await fs.readFileAsync(path.join(__dirname, 'tls', 'dhparam.pem'));
     await writeFileAtomic(serverCertPath, normalizeNewline(serverPems.cert), { mode: 0o600 });
     await writeFileAtomic(serverKeyPath, normalizeNewline(serverPems.private), { mode: 0o600 });
-    // await writeFileAtomic(dhparamPath, normalizeNewline(dhparam), { mode: 0o600 });
+    fs.writeFileSync(dhparamPath, dhparam, { mode: 0o600 });
 
     const clientCertPath = path.join(clientsPath, 'rpcuser1.cert.pem');
     const clientKeyPath = path.join(clientsPath, 'rpcuser1.key.pem');
@@ -179,7 +179,7 @@ const startDaemon = async () => {
 
     // https://github.com/cryptocode/notes/wiki/RPC-TLS
     rpcConfig.secure = {
-      enable: true,
+      enable: false,
       verbose_logging: is.development,
       server_cert_path: serverCertPath,
       server_key_path: serverKeyPath,
