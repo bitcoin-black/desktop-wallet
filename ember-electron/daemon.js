@@ -141,7 +141,7 @@ const startDaemon = async () => {
 
   config.rpc.child_process = {
     enable: false,
-    rpc_path: path.join(global.resourcesPath, toExecutableName('nano_rpc')),
+    rpc_path: path.join(global.resourcesPath, toExecutableName('btcb_rpc')),
   };
 
   let rpcConfig = {};

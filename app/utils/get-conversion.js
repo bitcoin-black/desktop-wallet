@@ -17,7 +17,8 @@ export const units = new Set([Gxrb, Mxrb, kxrb, xrb, mxrb, uxrb]);
 
 export const conversionFactors = new Map([
   [Gxrb, base10.pow(33)],
-  [Mxrb, base10.pow(30)],
+  // [Mxrb, base10.pow(30)],
+  [Mxrb, base10.pow(28)],
   [kxrb, base10.pow(27)],
   [xrb, base10.pow(24)],
   [mxrb, base10.pow(21)],

@@ -50,15 +50,15 @@ export default class ApplicationAjaxService extends AjaxService.extend({
 
   get headers() {
     const headers = {};
-    const electron = this.get('electron');
-    const isElectron = get(electron, 'isElectron');
-    if (isElectron) {
-      const token = get(electron, 'authorizationToken');
-      if (token) {
-        // headers.Authorization = `Bearer ${token}`;
-        console.log('Authorization Token Commented');
-      }
-    }
+    // const electron = this.get('electron');
+    // const isElectron = get(electron, 'isElectron');
+    // if (isElectron) {
+    //   const token = get(electron, 'authorizationToken');
+    //   if (token) {
+    //     // headers.Authorization = `Bearer ${token}`;
+    //     console.log('Authorization Token Commented');
+    //   }
+    // }
 
     return headers;
   }
