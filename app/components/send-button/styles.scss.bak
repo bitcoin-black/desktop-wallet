@@ -7,11 +7,8 @@
   bottom: 20px;
   z-index: 10;
   border-radius: 70px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-  // background-color: $light-blue;
-  // background-image: linear-gradient(-180deg, #585656 0%, #050505 100%);
-  // background-color: #43464b;
-  background-color: $black;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  background-color: $light-blue;
   color: $white;
   margin: 30 auto 0;
 
@@ -41,19 +38,16 @@
     background-color: inherit;
     color: $white;
 
-    .cover {
-      position: relative;
-      left: -3;
-      right: 15px;
-      bottom: 8px;
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 30px;
+      height: 30px;
+      margin: -14px 0 0 -16px;
       padding: 0;
       transition: transform 0.3s ease-in-out;
-      width: 90px;
-      height: 85px;
-      // font-size: 28px;
-      //background-color: $white;
-      //width: 150%;
-      // border-radius: 50%;
+      font-size: 28px;
     }
 
     &:active {
@@ -70,12 +64,11 @@
   &.expand {
     .toggle {
       top: 0;
-      //background-image: url(../../images/send-icon.png);
     }
   }
 
   p {
-    font-size: 20px;
+    font-size:20px;
     padding-left: 30px;
     padding-right: 30px;
     margin-top: -3px;
@@ -103,15 +96,13 @@
     .form-group {
       margin-bottom: 30px;
     }
-    .send-btn {
-      color: black !important;
-    }
+
     form input,
     .ember-power-select-trigger {
       height: 50px;
       border: 0;
       box-shadow: none;
-      color: $black;
+      color: $dark-purple;
       font-size: 0.95rem;
       line-height: 1.05rem;
       padding: 0 0.75rem;
@@ -132,9 +123,8 @@
       width: 100%;
       height: 60px;
       border-radius: 33px;
-      background-color: $yellow;
+      background-color: $dark-blue;
       border: 0;
-      color: $white;
     }
 
     .btn-outline-secondary {
@@ -143,7 +133,7 @@
       text-transform: uppercase;
 
       &:enabled:hover {
-        background-color: $yellow;
+        background-color: $orange;
       }
     }
 

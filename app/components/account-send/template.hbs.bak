@@ -46,7 +46,7 @@
     {{/let}}
 
     <div role="group" class="d-flex justify-content-center">
-      {{#bs-button disabled=(or model.isInvalid block.isSaving) size="lg" type="none" buttonType="submit" class="send-btn"}}
+      {{#bs-button disabled=(or model.isInvalid block.isSaving) size="lg" type="none" buttonType="submit" class="text-light"}}
         {{#if block.isSaving}}
           {{fa-icon "cog" spin=true}}
           {{t 'sending'}}

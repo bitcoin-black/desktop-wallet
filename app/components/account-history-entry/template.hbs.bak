@@ -10,7 +10,7 @@
     <div class="col-12 col-sm-5 justify-content-center d-flex">
       <p>
         <sup>
-          <img style="width:8px;" src="{{root-url "images/logo.svg"}}" alt="{{t 'NANO'}}">
+          <img src="{{root-url "images/logo.svg"}}" alt="{{t 'BCB'}}">
         </sup>
         {{format-amount entry.amount}}
       </p>

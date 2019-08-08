@@ -11,7 +11,7 @@
     <button type="button" {{action onDisagree}} class="btn btn-secondary btn-lg">
       {{t 'disagree'}}
     </button>
-    {{#bs-button buttonType="submit" disabled=(not (and (get model 'eula') (get model 'privacyPolicy'))) class="btn-lg" type="dark"}}
+    {{#bs-button buttonType="submit" disabled=(not (and (get model 'eula') (get model 'privacyPolicy'))) class="btn-lg" type="primary"}}
       {{fa-icon 'thumbs-up'}}
       {{t 'agree'}}
     {{/bs-button}}

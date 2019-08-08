@@ -28,7 +28,7 @@
     <button type="button" {{action onCancel}} class="btn btn-secondary btn-lg">
       {{t 'cancel'}}
     </button>
-    {{#bs-button buttonType="submit" class="btn-lg" type="dark"}}
+    {{#bs-button buttonType="submit" class="btn-lg" type="primary"}}
       {{fa-icon 'upload'}}
       {{t 'import'}}
     {{/bs-button}}

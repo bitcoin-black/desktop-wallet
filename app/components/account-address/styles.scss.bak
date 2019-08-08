@@ -5,10 +5,10 @@ span {
   }
 
   &:first-child {
-    color: $yellow;
+    color: $light-blue;
   }
 
   &:last-child {
-    color: $yellow;
+    color: $orange;
   }
 }

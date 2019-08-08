@@ -2,7 +2,7 @@
     onSubmit=(action (queue (action onSubmit) (action 'destroyChangeset'))) as |form|}}
   {{component form.element controlType="password" label=(t 'password') property='password' required=true minlength=8}}
 
-  {{#bs-button block=true type="dark" class="btn-lg" buttonType="submit"}}
+  {{#bs-button block=true type="primary" class="btn-lg" buttonType="submit"}}
     {{t 'wallets.unlock.unlockWallet'}}
   {{/bs-button}}
 {{/bs-form}}

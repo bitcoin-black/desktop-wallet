@@ -9,8 +9,9 @@
   }
   &::-webkit-scrollbar {
     width: 6px;
-    margin-right: 2px;
+    margin-right:2px;
   }
+
 
   &::-webkit-scrollbar-thumb {
     border-radius: 4px;
@@ -33,7 +34,7 @@
   }
 
   .receive {
-    color: $yellow;
+    color: $orange;
   }
 
   i {
@@ -57,7 +58,7 @@
 
 .no-history {
   height: 100%;
-  color: $black;
+  color: $dark-purple;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.2);
   text-align: center;

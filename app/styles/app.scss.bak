@@ -1,0 +1,95 @@
+@import "ember-bootstrap/bootstrap";
+
+@import "ember-power-select/themes/bootstrap";
+
+@import "ember-power-select";
+
+body {
+  border-radius: 10px;
+  overflow: hidden;
+  -webkit-app-region: drag;
+}
+
+@import "colors";
+
+@import "utilities";
+
+@import "setup";
+
+@import "history";
+
+body {
+  background-image: linear-gradient(-180deg, #000064 0%, #000034 100%);
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  height: calc(100vh - 100px);
+  overflow: hidden;
+  will-change: opacity;
+  animation: 1s ease fade-in;
+
+  hr {
+    border-top: 1px solid $purple;
+    width: 90%;
+  }
+}
+
+input,
+button,
+textarea {
+  -webkit-app-region: no-drag;
+}
+
+code {
+  background-color: $dark-purple;
+  border-radius: 5px;
+  color: rgba(251,251,251,.8);
+  display: block;
+  font-size: 87.5%;
+  padding: 10px;
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+
+.modal-header {
+  button {
+    outline: none;
+  }
+}
+
+#nprogress .spinner {
+  top: inherit;
+  bottom: 1em;
+  right: 1em;
+}
+
+.ember-load-indicator {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  animation: 1s ease fade-in;
+
+  picture {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 240px;
+    height: 240px;
+    margin: -120px 0 0 -120px;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@import "pod-styles";

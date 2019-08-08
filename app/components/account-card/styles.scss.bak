@@ -5,7 +5,7 @@ button {
   background-color: transparent;
 
   &.active .account-card-content {
-    transform: scale(1.1) !important;
+    transform: scale(1.10) !important;
   }
 }
 
@@ -19,15 +19,15 @@ button {
   height: 350px;
   margin: 0 auto;
   padding: 30px 20px;
-  transition: 0.4s;
+  transition: .4s;
   width: 280px;
 
   &:hover,
   &.active {
-    transform: scale(1.1) !important;
+    transform: scale(1.10) !important;
 
     .settings {
-      display: block;
+      display: block
     }
   }
 
@@ -46,7 +46,7 @@ button {
   }
 
   i {
-    color: $yellow;
+    color: $blue;
   }
 
   sup > img {
@@ -54,14 +54,11 @@ button {
   }
 
   .balance {
-    color: $black;
+    color: $dark-purple;
     font-size: 20px;
     line-height: 1;
     margin: 10px 0;
     text-align: center;
-  }
-  .logo-pic {
-    width: 8px;
   }
 
   .balance span {
@@ -69,7 +66,7 @@ button {
   }
 
   .balance sub {
-    color: $light-grey;
+    color: $text-light-blue;
     font-size: 14px;
   }
 
@@ -84,7 +81,7 @@ button {
     padding: 10px;
     height: 60px;
     font-size: 0.7rem;
-    background-color: $black;
+    background-color: $dark-purple;
     color: white;
     overflow-wrap: break-word;
 
