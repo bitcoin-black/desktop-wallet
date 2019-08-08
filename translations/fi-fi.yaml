@@ -1,4 +1,4 @@
-product: 'Nano Wallet Desktop'
+product: 'Bitcoin Black Betanet Wallet'
 cancel: 'Peruuta'
 done: 'Valmis'
 loading: 'Ladataan...'
@@ -47,7 +47,7 @@ status:
   unchecked: 'Tarkistamattomat lohkot'
   peers: 'Vertaisia'
 balancePending: 'Saldo odottaa'
-NANO: 'NANO'
+BCB: 'BCB'
 BTC: 'BTC'
 USD: 'USD'
 EUR: 'EUR'
@@ -89,8 +89,8 @@ wallets:
       source: 'Lähdetili'
       search: 'Hae tiliä'
       destination: 'Kohdetili'
-      placeholder: 'Osoite (esim. nano_...)'
-      amount: 'Määrä (NANO)'
+      placeholder: 'Osoite (esim. bcb_...)'
+      amount: 'Määrä (BCB)'
       insufficient: 'Määrä on suurempi kuin tilin saldo'
     history:
       none: 'Ei vielä historiaa'
@@ -113,7 +113,7 @@ wallets:
 setup:
   lead: 'Aloitetaan lompakkosi käyttöönotto.'
   instructions: >
-    Nano Wallet Desktopin käytön aloittaaksesi, sinun täytyy ensin luoda uusi lompakko tai tuoda vanha lompakko siemenkoodilla.
+    Bitcoin Black Betanet Wallet Desktopin käytön aloittaaksesi, sinun täytyy ensin luoda uusi lompakko tai tuoda vanha lompakko siemenkoodilla.
   create: 'Luo uusi lompakko'
   or: 'tai'
   import: 'Tuo lompakko'

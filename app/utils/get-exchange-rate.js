@@ -3,14 +3,14 @@ import { defineError } from 'ember-exex/error';
 import coinmarketcap from 'coinmarketcap';
 import BigNumber from 'bignumber.js';
 
-export const NANO = 'NANO';
+export const BCB = 'BCB';
 export const BTC = 'BTC';
 export const USD = 'USD';
 export const EUR = 'EUR';
 
-export const CURRENCIES = new Set([NANO, BTC, USD, EUR]);
+export const CURRENCIES = new Set([BCB, BTC, USD, EUR]);
 
-export const DEFAULT_CURRENCY = NANO;
+export const DEFAULT_CURRENCY = BCB;
 export const DEFAULT_EXCHANGE_RATE = 1;
 
 export const InvalidCurrencyError = defineError({

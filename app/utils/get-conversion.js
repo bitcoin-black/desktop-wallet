@@ -7,20 +7,20 @@ const base10 = BigNumber(10);
 export const Gxrb = 'Gxrb';
 export const Mxrb = 'Mxrb';
 export const kxrb = 'kxrb';
-export const xrb = 'xrb';
+export const bcb = 'bcb';
 export const mxrb = 'mxrb';
 export const uxrb = 'uxrb';
 
 export const DEFAULT_UNIT = Mxrb;
 
-export const units = new Set([Gxrb, Mxrb, kxrb, xrb, mxrb, uxrb]);
+export const units = new Set([Gxrb, Mxrb, kxrb, bcb, mxrb, uxrb]);
 
 export const conversionFactors = new Map([
   [Gxrb, base10.pow(33)],
   // [Mxrb, base10.pow(30)],
   [Mxrb, base10.pow(28)],
   [kxrb, base10.pow(27)],
-  [xrb, base10.pow(24)],
+  [bcb, base10.pow(24)],
   [mxrb, base10.pow(21)],
   [uxrb, base10.pow(18)],
 ]);

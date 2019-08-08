@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
-import validateAccount from '@nano-wallet-company/nano-wallet-desktop/validators/account';
+import validateAccount from '@bcb-wallet-company/bcb-wallet-desktop/validators/account';
 
 describe('Unit | Validator | account', () => {
   it('passes addresses with xrb_ prefix', () => {
@@ -9,7 +9,7 @@ describe('Unit | Validator | account', () => {
     expect(validator('account', account)).to.be.true;
   });
 
-  it('passes addresses with nano_ prefix', () => {
+  it('passes addresses with bcb_ prefix', () => {
     const validator = validateAccount();
     const account = 'nano_3arg3asgtigae3xckabaaewkx3bzsh7nwz7jkmjos79ihyaxwphhm6qgjps4';
     expect(validator('account', account)).to.be.true;

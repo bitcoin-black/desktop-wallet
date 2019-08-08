@@ -1,4 +1,4 @@
-product: 'Nano Wallet Desktop'
+product: 'Bitcoin Black Betanet Wallet'
 cancel: 'Cancella'
 done: 'Fatto'
 loading: 'Caricamento...'
@@ -45,7 +45,7 @@ status:
   unchecked: 'Unchecked Blocks'
   peers: 'Peers'
 balancePending: 'Balance Pending'
-NANO: 'NANO'
+BCB: 'BCB'
 BTC: 'BTC'
 USD: 'USD'
 EUR: 'EUR'
@@ -88,8 +88,8 @@ wallets:
       source: 'Account di provenienza'
       search: 'Cerca account'
       destination: 'Account di destinazione'
-      placeholder: 'Indirizzo (e.g. nano_...)'
-      amount: 'Somma (NANO)'
+      placeholder: 'Indirizzo (e.g. bcb_...)'
+      amount: 'Somma (BCB)'
       insufficient: "La somma supera il saldo totale dell'account"
     history:
       none: 'Nessun storico presente'
@@ -113,7 +113,7 @@ wallets:
 setup:
   lead: 'Impostiamo il tuo wallet.'
   instructions: >
-    Per iniziare ad usare Nano Wallet Desktop, dovrai prima creare un nuovo wallet o importare un wallet
+    Per iniziare ad usare Bitcoin Black Betanet Wallet, dovrai prima creare un nuovo wallet o importare un wallet
     usando il seed.
   create: 'Crea un nuovo Wallet'
   or: 'o'

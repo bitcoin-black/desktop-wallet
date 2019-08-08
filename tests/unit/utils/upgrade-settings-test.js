@@ -3,7 +3,7 @@ import { describe, it } from 'mocha';
 
 import window, { reset } from 'ember-window-mock';
 
-import upgradeSettings from '@nano-wallet-company/nano-wallet-desktop/utils/upgrade-settings';
+import upgradeSettings from '@bcb-wallet-company/bcb-wallet-desktop/utils/upgrade-settings';
 
 const { localStorage } = window;
 

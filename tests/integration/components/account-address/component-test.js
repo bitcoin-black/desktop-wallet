@@ -44,7 +44,7 @@ describe('Integration | Component | account-address', () => {
     expect(tail).to.equal('gjps4');
   });
 
-  it('converts xrb_ to nano_ addresses', async function() {
+  it('converts xrb_ to bcb_ addresses', async function() {
     const value = 'xrb_3arg3asgtigae3xckabaaewkx3bzsh7nwz7jkmjos79ihyaxwphhm6qgjps4';
     this.set('value', value);
     await render(hbs`{{account-address value=value}}`);

@@ -157,7 +157,7 @@ module.exports = {
   },
 
   github_repository: {
-    owner: 'nano-wallet-company',
-    name: 'nano-wallet-desktop',
+    owner: 'bcb-wallet-company',
+    name: 'bcb-wallet-desktop',
   },
 };

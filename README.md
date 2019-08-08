@@ -1,6 +1,6 @@
-# Nano Wallet Desktop
+# Bitcoin Black Betanet Wallet
 
-[![Travis CI Status](https://travis-ci.org/nano-wallet-company/nano-wallet-desktop.svg?branch=master)](https://travis-ci.org/nano-wallet-company/nano-wallet-desktop) [![AppVeyor Status](https://ci.appveyor.com/api/projects/status/917e9ui37nwt4i00/branch/master?svg=true)](https://ci.appveyor.com/project/devinus/nano-wallet-desktop/branch/master)
+[![Travis CI Status](https://travis-ci.org/bcb-wallet-company/bcb-wallet-desktop.svg?branch=master)](https://travis-ci.org/bcb-wallet-company/bcb-wallet-desktop) [![AppVeyor Status](https://ci.appveyor.com/api/projects/status/917e9ui37nwt4i00/branch/master?svg=true)](https://ci.appveyor.com/project/devinus/bcb-wallet-desktop/branch/master)
 
 An ambitious Nano wallet for desktop and web.
 
@@ -19,8 +19,8 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone https://github.com/nano-wallet-company/nano-wallet-desktop.git`
-* `cd nano-wallet-desktop`
+* `git clone https://github.com/bcb-wallet-company/bcb-wallet-desktop.git`
+* `cd bcb-wallet-desktop`
 * `yarn install`
 
 ## Running / Development

@@ -1,4 +1,4 @@
-product: 'Nano Wallet Desktop'
+product: 'Bitcoin Black Betanet Wallet'
 cancel: 'Annuleer'
 done: 'Klaar'
 loading: 'Laden...'
@@ -45,7 +45,7 @@ status:
   unchecked: 'Ongecontroleerde blocks'
   peers: 'Peers'
 balancePending: 'Saldo in afwachting'
-NANO: 'NANO'
+BCB: 'BCB'
 BTC: 'BTC'
 USD: 'USD'
 EUR: 'EUR'
@@ -87,8 +87,8 @@ wallets:
       source: 'Afkomst Account'
       search: 'Zoek naar Account'
       destination: 'Bestemming Account'
-      placeholder: 'Adres (bv. nano_...)'
-      amount: 'Bedrag (NANO)'
+      placeholder: 'Adres (bv. bcb_...)'
+      amount: 'Bedrag (BCB)'
       insufficient: 'Bedrag is groter dan het beschikbare saldo'
     history:
       none: 'Nog geen geschiedenis'
@@ -111,7 +111,7 @@ wallets:
 setup:
   lead: 'Laten we starten met het opzetten van je Wallet.'
   instructions: >
-    Om Nano Wallet Desktop te kunnen gebruiken, moet je eerst een nieuwe Wallet aanmaken, of een bestaande Wallet importeren met je seed.
+    Om Bitcoin Black Betanet Wallet te kunnen gebruiken, moet je eerst een nieuwe Wallet aanmaken, of een bestaande Wallet importeren met je seed.
   create: 'Maak nieuwe Wallet aan'
   or: 'of'
   import: 'Importeer een Wallet'

@@ -16,9 +16,9 @@ export default {
   },
 
   number: {
-    NANO: {
+    BCB: {
       style: 'currency',
-      currency: 'NANO',
+      currency: 'BCB',
     },
 
     BTC: {

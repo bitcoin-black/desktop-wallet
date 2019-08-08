@@ -44,7 +44,7 @@ const generateCert = async commonName => {
     { name: 'countryName', value: 'US' },
     { name: 'stateOrProvinceName', value: 'Texas' },
     { name: 'localityName', value: 'Austin' },
-    { name: 'organizationName', value: 'Nano Wallet Company LLC' },
+    { name: 'organizationName', value: 'Bitcoin Black Betanet Wallet Company LLC' },
     { name: 'organizationalUnitName', value: 'Desktop' },
     { name: 'emailAddress', value: 'desktop@nanowalletcompany.com' },
   ];

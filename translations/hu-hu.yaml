@@ -51,7 +51,7 @@ disagree: 'Elutasít'
 legal:
   title: 'Terms and Conditions'
   disclaimer: >
-    Your use of this Nano Wallet application is subject to your agreement to all terms and
+    Your use of this Bitcoin Black Betanet Wallet application is subject to your agreement to all terms and
     conditions of the End User License Agreement and Privacy Policy linked below (collectively, the
     "Terms and Conditions"). Please tap the links below and read all Terms and Conditions carefully.
     By checking the boxes below and tapping "Agree," you acknowledge that you have read, understand
@@ -69,7 +69,7 @@ status:
   unchecked: 'ellenőrizetlen blokkok'
   peers: 'kapcsolatok'
 balancePending: 'Függő Egyenleg'
-NANO: 'NANO'
+BCB: 'BCB'
 BTC: 'BTC'
 USD: 'USD'
 EUR: 'EUR'
@@ -112,8 +112,8 @@ wallets:
       source: 'Forrás számla'
       search: 'Számla keresés'
       destination: 'Cél számla'
-      placeholder: 'Cím (pl. nano_...)'
-      amount: 'Összeg (NANO)'
+      placeholder: 'Cím (pl. bcb_...)'
+      amount: 'Összeg (BCB)'
       insufficient: 'Az összeg nagyobb, mint a számla egyenlege'
     history:
       none: 'Nincs még számla történet'

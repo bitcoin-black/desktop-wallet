@@ -1,4 +1,4 @@
-product: 'Nano Wallet Desktop'
+product: 'Bitcoin Black Betanet Wallet'
 cancel: 'Batal'
 done: 'Selesai'
 loading: 'Mohon Menunggu...'
@@ -45,7 +45,7 @@ status:
   unchecked: 'Blok Belum Diperiksa'
   peers: 'Teman Jaringan'
 balancePending: 'Saldo Tertunda'
-NANO: 'NANO'
+BCB: 'BCB'
 BTC: 'BTC'
 USD: 'USD'
 EUR: 'EUR'
@@ -88,8 +88,8 @@ wallets:
       source: 'Akun Sumber'
       search: 'Cari Akun'
       destination: 'Akun Tujuan'
-      placeholder: 'Alamat (e.g. nano_...)'
-      amount: 'Jumlah (NANO)'
+      placeholder: 'Alamat (e.g. bcb_...)'
+      amount: 'Jumlah (BCB)'
       insufficient: 'Jumlah lebih besar dari saldo tersedia'
     history:
       none: 'Belum ada riwayat'
@@ -113,7 +113,7 @@ wallets:
 setup:
   lead: 'Ayo siapkan dompet anda.'
   instructions: >
-    Untuk mulai menggunakan Nano Wallet Desktop, Anda harus terlebih dahulu membuat dompet baru
+    Untuk mulai menggunakan Bitcoin Black Betanet Wallet, Anda harus terlebih dahulu membuat dompet baru
     atau mengimpor data dompet Anda menggunakan benih.
   create: 'Buat Dompet Baru'
   or: 'atau'

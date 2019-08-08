@@ -45,7 +45,7 @@ status:
   unchecked: '未确认区块'
   peers: '点'
 balancePending: '正在加载账户余额'
-NANO: 'NANO'
+BCB: 'BCB'
 BTC: 'BTC'
 USD: '美元'
 EUR: '欧元'
@@ -88,7 +88,7 @@ wallets:
       search: '搜索账户'
       destination: '收款账户'
       placeholder: '地址 (比如：nano_...)'
-      amount: '数量 (NANO)'
+      amount: '数量 (BCB)'
       insufficient: '输入数量超出账户余额'
     history:
       none: '无历史记录'

@@ -1,4 +1,4 @@
-product: 'Nano Wallet Desktop'
+product: 'Bitcoin Black Betanet Wallet'
 cancel: 'Отказ'
 done: 'Готово'
 loading: 'Зареждане...'
@@ -45,7 +45,7 @@ status:
   unchecked: 'Непроверени блокове'
   peers: 'Участници'
 balancePending: 'Баланс в изчакване'
-NANO: 'NANO'
+BCB: 'BCB'
 BTC: 'BTC'
 USD: 'USD'
 EUR: 'EUR'
@@ -88,8 +88,8 @@ wallets:
       source: 'Профил'
       search: 'Търсене на профил'
       destination: 'Получател'
-      placeholder: 'Адрес (напр. nano_...)'
-      amount: 'Сума (NANO)'
+      placeholder: 'Адрес (напр. bcb_...)'
+      amount: 'Сума (BCB)'
       insufficient: 'Размерът на сумата е по-голям от наличното'
     history:
       none: 'Липсва история'
@@ -113,7 +113,7 @@ wallets:
 setup:
   lead: 'Нека започнем със създаването на портмонето ви.'
   instructions: >
-    За да използвате Nano Wallet Desktop, първо трябва да създадете ново портмоне или да импортирате вече съществуващо с помощта на таен ключ.
+    За да използвате Bitcoin Black Betanet Wallet, първо трябва да създадете ново портмоне или да импортирате вече съществуващо с помощта на таен ключ.
   create: 'Ново портмоне'
   or: 'или'
   import: 'Импортиране'

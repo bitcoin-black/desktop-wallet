@@ -1,36 +1,54 @@
 {
-  "name": "@nano-wallet-company/nano-wallet-desktop",
+  "name": "@bcb-wallet-company/bcb-wallet-desktop",
   "version": "1.8.0",
-  "description": "An ambitious Nano wallet for desktop and web.",
-  "homepage": "https://nanowalletcompany.com",
+  "productName": "Bitcoin Black Betanet Wallet",
+  "genericName": "Bitcoin Black Betanet Wallet",
+  "description": "An ambitious bcb wallet for desktop and web.",
+  "homepage": "https://bitcoin.black",
+  "copyright": "Copyright © 2019 Bitcoin Black Betanet Wallet",
+  "main": "ember-electron/main.js",
   "bugs": {
-    "url": "https://github.com/nano-wallet-company/nano-wallet-desktop/issues",
-    "email": "support@nanowalletcompany.com"
+    "url": "https://github.com/bitcoin-black-bcb/bcb-wallet/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nano-wallet-company/nano-wallet-desktop.git"
+    "url": "git+https://github.com/bitcoin-black-bcb/bcb-wallet"
   },
-  "license": "BSD-2-Clause",
+  "license": "MIT",
   "author": {
-    "name": "Nano Wallet Company LLC",
-    "email": "team@nanowalletcompany.com"
+    "name": "Bitcoin Black",
+    "email": "hello@bitcoin.black"
+  },
+  "build": {
+    "appId": "com.bcbwalletcompany.desktop",
+    "mac": {
+      "category": "public.app-category.finance"
+    },
+    "linux": {
+      "desktop": {
+        "Categories": "P2P;Finance;Security"
+      }
+    }
   },
   "scripts": {
     "build": "ember build",
+    "start": "ember serve",
+    "test": "ember test",
+    "lint:js": "eslint .",
+    "lint:hbs": "ember-template-lint .",
+    "release": "standard-version",
+    "electron:dev": "nodemon -L -w ember-electron -x yarn run-s clean electron:start",
+    "electron:start": "ember electron",
+    "electron:prod": "ember electron --environment=production",
     "clean": "run-p clean:*",
+    "clean:tmp": "rimraf tmp",
     "clean:dist": "rimraf dist",
     "clean:electron-out": "rimraf electron-out",
-    "clean:tmp": "rimraf tmp",
-    "commit": "git-cz",
-    "electron:dev": "nodemon -L -w ember-electron -x 'yarn run-s clean electron:start'",
-    "electron:start": "ember electron",
-    "lint": "run-s lint:*",
-    "lint:hbs": "ember-template-lint .",
-    "lint:js": "eslint .",
-    "release": "standard-version",
-    "start": "ember serve",
-    "test": "ember exam"
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64  --asar  --icon=ember-electron/resources/icon.icns --prune=true --out=release-builds",
+    "package-win32": "electron-packager . Bitcoin-Black-Wallet --overwrite --platform=win32 --arch=ia32 --icon=ember-electron/resources/icon.ico --prune=true --out=release-builds/win-x86 --version-string.CompanyName=BCB --version-string.FileDescription=CE --version-string.ProductName=\"Bitcoin Black Betanet Wallet\"",
+    "package-win64": "electron-packager . Bitcoin-Black-Wallet --overwrite --platform=win32 --arch=x64 --icon=ember-electron/resources/icon.ico --prune=true --out=release-builds/win-x64 --version-string.CompanyName=BCB --version-string.FileDescription=CE --version-string.ProductName=\"Bitcoin Black Betanet Wallet\"",
+    "package-linux32": "electron-packager . Bitcoin-Black-Wallet --overwrite --platform=linux --arch=ia32 --icon=ember-electron/resources/icon.ico --prune=true --out=release-builds/linux-x86 --version-string.CompanyName=BCB --version-string.FileDescription=CE --version-string.ProductName=\"Bitcoin Black Betanet Wallet\"",
+    "package-linux64": "electron-packager . Bitcoin-Black-Wallet --overwrite --platform=linux --arch=x64 --icon=ember-electron/resources/icon.ico --prune=true --out=release-builds/linux-x64 --version-string.CompanyName=BCB --version-string.FileDescription=CE --version-string.ProductName=\"Bitcoin Black Betanet Wallet\""
   },
   "husky": {
     "hooks": {
@@ -262,19 +280,5 @@
   },
   "engines": {
     "node": ">= 10.11.0"
-  },
-  "build": {
-    "appId": "com.nanowalletcompany.desktop",
-    "mac": {
-      "category": "public.app-category.finance"
-    },
-    "linux": {
-      "desktop": {
-        "Categories": "P2P;Finance;Security"
-      }
-    }
-  },
-  "copyright": "Copyright © 2019 Nano Wallet Company LLC",
-  "genericName": "Wallet",
-  "productName": "Nano Wallet Desktop"
+  }
 }

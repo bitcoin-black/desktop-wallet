@@ -6,7 +6,7 @@
         {{#let (or (get item 'content') item) as |content|}}
           <div>
             {{account-label account=content truncate=30}}
-            {{format-amount (get content 'balance')}} {{t 'NANO'}}
+            {{format-amount (get content 'balance')}} {{t 'BCB'}}
           </div>
         {{/let}}
       {{/component}}
