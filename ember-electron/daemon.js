@@ -77,7 +77,7 @@ const getLoopbackAddress = () =>
 const getNetwork = async () => {
   switch (global.environment) {
     case 'production':
-      return 'live';
+      return 'beta';
     case 'development':
       return 'beta';
     default:

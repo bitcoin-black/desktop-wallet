@@ -42,3 +42,7 @@ corber/cordova/plugins/*
 !corber/cordova/plugins/.gitkeep
 corber/cordova/www/*
 !corber/cordova/www/.gitkeep
+
+Installer/NSIS/betanet/
+
+Installer/NSIS/BCB Betanet Wallet Installer\.exe

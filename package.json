@@ -45,10 +45,10 @@
     "clean:dist": "rimraf dist",
     "clean:electron-out": "rimraf electron-out",
     "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64  --asar  --icon=ember-electron/resources/icon.icns --prune=true --out=release-builds",
-    "package-win32": "electron-packager . Bitcoin-Black-Wallet --overwrite --platform=win32 --arch=ia32 --icon=ember-electron/resources/icon.ico --prune=true --out=release-builds/win-x86 --version-string.CompanyName=BCB --version-string.FileDescription=CE --version-string.ProductName=\"Bitcoin Black Betanet Wallet\"",
-    "package-win64": "electron-packager . Bitcoin-Black-Wallet --overwrite --platform=win32 --arch=x64 --icon=ember-electron/resources/icon.ico --prune=true --out=release-builds/win-x64 --version-string.CompanyName=BCB --version-string.FileDescription=CE --version-string.ProductName=\"Bitcoin Black Betanet Wallet\"",
-    "package-linux32": "electron-packager . Bitcoin-Black-Wallet --overwrite --platform=linux --arch=ia32 --icon=ember-electron/resources/icon.ico --prune=true --out=release-builds/linux-x86 --version-string.CompanyName=BCB --version-string.FileDescription=CE --version-string.ProductName=\"Bitcoin Black Betanet Wallet\"",
-    "package-linux64": "electron-packager . Bitcoin-Black-Wallet --overwrite --platform=linux --arch=x64 --icon=ember-electron/resources/icon.ico --prune=true --out=release-builds/linux-x64 --version-string.CompanyName=BCB --version-string.FileDescription=CE --version-string.ProductName=\"Bitcoin Black Betanet Wallet\""
+    "package-win32": "electron-packager . Bitcoin-Black-Betanet-Wallet --overwrite --platform=win32 --arch=ia32 --icon=ember-electron/resources/icon.ico --prune=true --out=release-builds/win-x86 --version-string.CompanyName=BCB --version-string.FileDescription=CE --version-string.ProductName=\"Bitcoin Black Betanet Wallet\"",
+    "package-win64": "electron-packager . Bitcoin-Black-Betanet-Wallet --overwrite --platform=win32 --arch=x64 --icon=ember-electron/resources/icon.ico --prune=true --out=release-builds/win-x64 --version-string.CompanyName=BCB --version-string.FileDescription=CE --version-string.ProductName=\"Bitcoin Black Betanet Wallet\"",
+    "package-linux32": "electron-packager . Bitcoin-Black-Betanet-Wallet --overwrite --platform=linux --arch=ia32 --icon=ember-electron/resources/icon.ico --prune=true --out=release-builds/linux-x86 --version-string.CompanyName=BCB --version-string.FileDescription=CE --version-string.ProductName=\"Bitcoin Black Betanet Wallet\"",
+    "package-linux64": "electron-packager . Bitcoin-Black-Betanet-Wallet --overwrite --platform=linux --arch=x64 --icon=ember-electron/resources/icon.ico --prune=true --out=release-builds/linux-x64 --version-string.CompanyName=BCB --version-string.FileDescription=CE --version-string.ProductName=\"Bitcoin Black Betanet Wallet\""
   },
   "husky": {
     "hooks": {
