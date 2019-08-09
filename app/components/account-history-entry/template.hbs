@@ -2,22 +2,26 @@
   <div class="row w-100">
     <div class="col-12 col-sm-2 justify-content-center d-flex">
       {{#if (eq entry.type 'send')}}
-        {{fa-icon "paper-plane" class="send" ariaLabel=(t 'send')}}
+        {{fa-icon "paper-plane" class="send"}} <span class="ml-2 muted">Outgoing</span>
       {{else}}
-        {{fa-icon "envelope-open" class="receive" ariaLabel=(t 'receive')}}
+        {{fa-icon "envelope-open" class="receive"}} <span class="ml-2 muted">Incoming</span>
       {{/if}}
     </div>
-    <div class="col-12 col-sm-5 justify-content-center d-flex">
+    <div class="col-12 col-sm-2 justify-content-center d-flex">
       <p>
         <sup>
-          <img style="width:8px;" src="{{root-url "images/logo.svg"}}" alt="{{t 'NANO'}}">
+          <img class="bcb-logo" src="{{root-url "images/logo.svg"}}" alt="{{t 'BCB'}}">
         </sup>
-        {{format-amount entry.amount}}
+        <strong>{{format-amount entry.amount}}</strong>
       </p>
     </div>
-    <div class="col-12 col-sm-5 justify-content-center d-flex">
+    <div class="col-12 col-sm-8 d-flex">
       <p class="text-truncate">
-        {{account-address value=entry.account truncate=25}}
+        {{#if (eq entry.type 'send')}}
+           To: <strong>{{entry.account}}</strong>
+        {{else}}
+           From: <strong>{{entry.account}}</strong>
+        {{/if}}
       </p>
     </div>
   </div>
