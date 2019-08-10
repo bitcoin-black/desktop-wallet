@@ -15,6 +15,23 @@ D7B324B3A25A0CB089F064CA103CADD12F469ADCB3E325A377A1EA03B12005BE
 bcb_1i7fg67o1scjp13xu94ge4izz7trg9fs7tgfbxwauwrcqbpctmpy4ux1pww5
 
 
+bootstrap.bat --with-libraries=filesystem,log,program_options,thread
+
+b2 --prefix=C:/boost-main/boost-build --build-dir=C:/boost-main/boost-build address-model=64 link=static runtime-link=static release stage install
+
+cmake bcb_node -DBoost_DEBUG=ON -DBOOST_ROOT="C:/boost-main/boost_1_67_0" -DBOOST_INCLUDEDIR=C:/boost-main/boost-build/include -DBOOST_LIBRARYDIR=C:/boost-main/boost-build/boost/bin.v2/libs -DCMAKE_BUILD_TYPE=Release -DACTIVE_NETWORK=nano_beta_network -DENABLE_AVX2=ON -DCRYPTOPP_CUSTOM=ON -DNANO_SIMD_OPTIMIZATIONS=OFF -DNANO_SECURE_RPC=ON
+
+cmake bcb_node -DBoost_DEBUG=ON -DBOOST_ROOT="C:/boost-main/boost_1_67_0" -DBOOST_INCLUDEDIR=C:/boost-main/boost-build/include/boost-1_67 -DBOOST_LIBRARYDIR=C:/boost-main/boost-build/lib -DCMAKE_BUILD_TYPE=Release -DACTIVE_NETWORK=nano_beta_network -DENABLE_AVX2=ON -DCRYPTOPP_CUSTOM=ON -DNANO_SIMD_OPTIMIZATIONS=OFF -DNANO_SECURE_RPC=ON
+
+
+
+
+
+cmake -DCMAKE_BUILD_TYPE=Release -DACTIVE_NETWORK=btcb_beta_network -DQt5_DIR="C:\Qt\5.9.8\msvc2017_64\lib\cmake\Qt5" -DBoost_COMPILER="-vc141" -DBOOST_ROOT="C:/boost_1_67_0" -DBOOST_LIBRARYDIR="C:/boost_1_67_0/lib64-msvc-14.1" -G "Visual Studio 15 2017 Win64" -DIPHLPAPI_LIBRARY="C:/Program Files (x86)/Windows Kits/10/Lib/10.0.17763.0/um/x64/iphlpapi.lib" -DWINSOCK2_LIBRARY="C:/Program Files (x86)/Windows Kits/10/Lib/10.0.17763.0/um/x64/WS2_32.lib" -DBTCB_SIMD_OPTIMIZATIONS=TRUE -DBTCB_SECURE_RPC=TRUE  ..\. 
+
+cmake --build . --target ALL_BUILD --config Release -- /m:16 
+
+cpack -G NSIS -C Release
 
 Signing Command:
 signtool.exe sign /f bcb_cert.p12 /p "AB#&!6422bgh" /tr http://timestamp.digicert.com /td sha256 /fd sha256 /a C:\btcb_node.exe
