@@ -41,15 +41,15 @@ const { app } = electron;
 const generateCert = async commonName => {
   const attrs = [
     { name: 'commonName', value: commonName },
-    { name: 'countryName', value: 'US' },
-    { name: 'stateOrProvinceName', value: 'Texas' },
-    { name: 'localityName', value: 'Austin' },
-    { name: 'organizationName', value: 'Bitcoin Black Betanet Wallet Company LLC' },
+    { name: 'countryName', value: '' },
+    { name: 'stateOrProvinceName', value: '' },
+    { name: 'localityName', value: '' },
+    { name: 'organizationName', value: 'Bitcoin Black Betanet Wallet' },
     { name: 'organizationalUnitName', value: 'Desktop' },
-    { name: 'emailAddress', value: 'desktop@nanowalletcompany.com' },
+    { name: 'emailAddress', value: '' },
   ];
 
-  log.info('Generating TLS certificate:', commonName);
+  // log.info('Generating TLS certificate:', commonName);
   return selfsigned.generate(attrs, {
     keySize: 2048,
     algorithm: 'sha256',

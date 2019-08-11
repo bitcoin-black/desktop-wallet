@@ -4,11 +4,9 @@ import coinmarketcap from 'coinmarketcap';
 import BigNumber from 'bignumber.js';
 
 export const BCB = 'BCB';
-export const BTC = 'BTC';
 export const USD = 'USD';
-export const EUR = 'EUR';
 
-export const CURRENCIES = new Set([BCB, BTC, USD, EUR]);
+export const CURRENCIES = new Set([BCB, USD]);
 
 export const DEFAULT_CURRENCY = BCB;
 export const DEFAULT_EXCHANGE_RATE = 1;

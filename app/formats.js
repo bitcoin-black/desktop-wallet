@@ -21,22 +21,9 @@ export default {
       currency: 'BCB',
     },
 
-    BTC: {
-      style: 'currency',
-      currency: 'BTC',
-      maximumFractionDigits: 8,
-    },
-
     USD: {
       style: 'currency',
       currency: 'USD',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    },
-
-    EUR: {
-      style: 'currency',
-      currency: 'EUR',
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     },

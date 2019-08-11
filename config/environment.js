@@ -73,8 +73,8 @@ module.exports = environment => {
     },
 
     links: {
-      eula: 'https://nanowalletcompany.com/desktop-eula',
-      privacyPolicy: 'https://nanowalletcompany.com/desktop-privacy-policy',
+      eula: '#',
+      privacyPolicy: '#',
     },
 
     assets: {
