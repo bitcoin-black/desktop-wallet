@@ -32,27 +32,59 @@ export default async function getExchangeRate(currency = DEFAULT_CURRENCY) {
   if (currency === DEFAULT_CURRENCY) {
     return DEFAULT_EXCHANGE_RATE;
   }
-
+ 
   if (!CURRENCIES.has(currency)) {
     throw new InvalidCurrencyError({ params: { currency } });
   }
-
-  const asset = DEFAULT_CURRENCY;
-  const convert = String(currency).toLowerCase();
-  let ticker;
-  try {
-    ticker = await coinmarketcap.tickerByAsset(asset, { convert });
-  } catch (err) {
-    throw new RequestExchangeRateError().withPreviousError(err);
-  }
-
-  const value = ticker[`price_${convert}`];
+ 
+  // const asset = DEFAULT_CURRENCY;
+  // const convert = String(currency).toLowerCase();
+  // let ticker;
+  // try {
+  //   ticker = await coinmarketcap.tickerByAsset(asset, { convert });
+  // } catch (err) {
+  //   throw new RequestExchangeRateError().withPreviousError(err);
+  // }
+ 
+  // const value = ticker[`price_${convert}`];
   let exchangeRate;
   try {
-    exchangeRate = BigNumber(value);
+    //  exchangeRate = BigNumber(value);
+    exchangeRate = 0.01; // BigNumber(value);
   } catch (err) {
-    throw new InvalidExchangeRateError({ params: { value } }).withPreviousError(err);
+    throw new InvalidExchangeRateError({
+      params: { exchangeRate },
+    }).withPreviousError(err);
   }
-
+ 
   return exchangeRate;
 }
+
+// export default async function getExchangeRate(currency = DEFAULT_CURRENCY) {
+//   if (currency === DEFAULT_CURRENCY) {
+//     return DEFAULT_EXCHANGE_RATE;
+//   }
+
+//   if (!CURRENCIES.has(currency)) {
+//     throw new InvalidCurrencyError({ params: { currency } });
+//   }
+
+//   const asset = DEFAULT_CURRENCY;
+//   const convert = String(currency).toLowerCase();
+//   let ticker;
+//   try {
+//     ticker = await coinmarketcap.tickerByAsset(asset, { convert });
+//   } catch (err) {
+//     throw new RequestExchangeRateError().withPreviousError(err);
+//   }
+
+//   const value = ticker[`price_${convert}`];
+//   let exchangeRate;
+//   try {
+//     exchangeRate = BigNumber(value);
+//   } catch (err) {
+//     throw new InvalidExchangeRateError({ params: { value } }).withPreviousError(err);
+//   }
+
+//   return exchangeRate;
+// }
