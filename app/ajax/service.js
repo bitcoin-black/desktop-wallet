@@ -1,5 +1,4 @@
 import AjaxService from 'ember-ajax/services/ajax';
-import { get } from '@ember/object';
 
 import { task } from 'ember-concurrency';
 import { retryable, ExponentialBackoffPolicy } from 'ember-concurrency-retryable';
@@ -49,18 +48,7 @@ export default class ApplicationAjaxService extends AjaxService.extend({
   contentType = 'application/json';
 
   get headers() {
-    const headers = {};
-    // const electron = this.get('electron');
-    // const isElectron = get(electron, 'isElectron');
-    // if (isElectron) {
-    //   const token = get(electron, 'authorizationToken');
-    //   if (token) {
-    //     // headers.Authorization = `Bearer ${token}`;
-    //     console.log('Authorization Token Commented');
-    //   }
-    // }
-
-    return headers;
+    return {};
   }
 
   request(...args) {

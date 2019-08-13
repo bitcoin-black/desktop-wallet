@@ -1,8 +1,5 @@
 import { defineError } from 'ember-exex/error';
 
-import coinmarketcap from 'coinmarketcap';
-import BigNumber from 'bignumber.js';
-
 export const BCB = 'BCB';
 export const USD = 'USD';
 
@@ -37,20 +34,9 @@ export default async function getExchangeRate(currency = DEFAULT_CURRENCY) {
     throw new InvalidCurrencyError({ params: { currency } });
   }
  
-  // const asset = DEFAULT_CURRENCY;
-  // const convert = String(currency).toLowerCase();
-  // let ticker;
-  // try {
-  //   ticker = await coinmarketcap.tickerByAsset(asset, { convert });
-  // } catch (err) {
-  //   throw new RequestExchangeRateError().withPreviousError(err);
-  // }
- 
-  // const value = ticker[`price_${convert}`];
   let exchangeRate;
   try {
-    //  exchangeRate = BigNumber(value);
-    exchangeRate = 0.01; // BigNumber(value);
+    exchangeRate = 0.01;
   } catch (err) {
     throw new InvalidExchangeRateError({
       params: { exchangeRate },
@@ -59,32 +45,3 @@ export default async function getExchangeRate(currency = DEFAULT_CURRENCY) {
  
   return exchangeRate;
 }
-
-// export default async function getExchangeRate(currency = DEFAULT_CURRENCY) {
-//   if (currency === DEFAULT_CURRENCY) {
-//     return DEFAULT_EXCHANGE_RATE;
-//   }
-
-//   if (!CURRENCIES.has(currency)) {
-//     throw new InvalidCurrencyError({ params: { currency } });
-//   }
-
-//   const asset = DEFAULT_CURRENCY;
-//   const convert = String(currency).toLowerCase();
-//   let ticker;
-//   try {
-//     ticker = await coinmarketcap.tickerByAsset(asset, { convert });
-//   } catch (err) {
-//     throw new RequestExchangeRateError().withPreviousError(err);
-//   }
-
-//   const value = ticker[`price_${convert}`];
-//   let exchangeRate;
-//   try {
-//     exchangeRate = BigNumber(value);
-//   } catch (err) {
-//     throw new InvalidExchangeRateError({ params: { value } }).withPreviousError(err);
-//   }
-
-//   return exchangeRate;
-// }
