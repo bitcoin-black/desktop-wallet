@@ -14,9 +14,9 @@
 # This is the size (in kB) of all the files copied into "Program Files"
 !define INSTALLSIZE 75000
  
-RequestExecutionLevel admin ;Require admin rights on NT6+ (When UAC is turned on)
+RequestExecutionLevel highest ;Require admin rights on NT6+ (When UAC is turned on)
  
-InstallDir "$PROGRAMFILES\${COMPANYNAME}\${APPNAME}"
+InstallDir "$PROGRAMFILES64\${COMPANYNAME}\${APPNAME}"
  
 # rtf or txt file - remember if it is txt, it must be in the DOS text format (\r\n)
 LicenseData "license.rtf"
