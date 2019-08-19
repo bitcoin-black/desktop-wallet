@@ -5,8 +5,8 @@
       {{#component el.control searchField="id" searchPlaceholder=(t 'wallets.accounts.send.search') as |item|}}
         {{#let (or (get item 'content') item) as |content|}}
           <div>
-            {{account-label account=content truncate=30}}
-            {{format-amount (get content 'balance')}} {{t 'BCB'}}
+            {{format-amount (get content 'balance')}} {{t 'BCB'}} :
+            <span class="text-custom-muted"><span class="label-color">{{ slice 0 9 (to-nano-prefix content.id)}}</span><span>{{slice 9 59 content.id}}</span><span class="label-color">{{slice 59 64 content.id}}</span></span>
           </div>
         {{/let}}
       {{/component}}

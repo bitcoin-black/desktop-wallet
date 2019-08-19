@@ -27,6 +27,14 @@ body {
   padding: 0;
 }
 
+.label-color {
+  color: #DAA520;
+}
+
+.text-custom-muted {
+  font-size: 12px;
+}
+
 main {
   height: calc(100vh - 100px);
   overflow: hidden;
