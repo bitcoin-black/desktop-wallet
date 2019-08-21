@@ -35,3 +35,7 @@ cpack -G NSIS -C Release
 
 Signing Command:
 signtool.exe sign /f bcb_cert.p12 /p "AB#&!6422bgh" /tr http://timestamp.digicert.com /td sha256 /fd sha256 /a C:\btcb_node.exe
+
+
+
+electron-installer-dmg ./release-builds/Bitcoin\ Black\ Betanet\ Wallet-darwin-x64/Bitcoin\ Black\ Betanet\ Wallet.app/ ./BitcoinBlackBetanetWallet --icon=ember-electron/resources/icon.icns --overwrite
