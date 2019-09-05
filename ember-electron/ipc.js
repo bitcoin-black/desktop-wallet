@@ -34,16 +34,11 @@ const downloadStart = ({ sender }, url) => {
 
   return downloadAsset(sender, url, onStarted, onProgress)
     .then(() => {
-      try {
-        if (!window.isDestroyed()) {
-          window.setProgressBar(-1);
-        }
+      if (!window.isDestroyed()) {
+        window.setProgressBar(-1);
+      }
 
-        if (!sender.isDestroyed()) {
-          sender.send('download-done');
-        }
-      } catch (err) {
-        log.error(err);
+      if (!sender.isDestroyed()) {
         sender.send('download-done');
       }
     })

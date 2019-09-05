@@ -70,9 +70,13 @@ const downloadAsset = async (sender, url, onStarted, onProgress) => {
   log.info('Downloading asset:', url);
 
   const start = Date.now();
-  const directory = path.join(app.getPath('downloads'), productName);
-  await del(directory, { force: true });
-  await makeDir(directory, { fs });
+
+  const dataPath = path.normalize(global.dataPath);
+  const filePath = path.join(dataPath, 'data.ldb');
+
+  if (fs.existsSync(filePath)) {
+    fs.unlinkSync(filePath);
+  }
 
   const {
     webContents: { session },
@@ -80,7 +84,7 @@ const downloadAsset = async (sender, url, onStarted, onProgress) => {
   session.setUserAgent(USER_AGENT);
 
   const dl = await download(sender, url, {
-    directory,
+    directory: dataPath,
     onStarted,
     onProgress,
     showBadge: false,
@@ -89,31 +93,6 @@ const downloadAsset = async (sender, url, onStarted, onProgress) => {
   const savePath = dl.getSavePath();
   const elapsed = Date.now() - start;
   log.info('Asset downloaded:', savePath, `(took ${prettyMs(elapsed)})`);
-  if (!sender.isDestroyed()) {
-    sender.send('download-verify');
-  }
-
-  const verified = await verifyAsset(url, savePath, onProgress);
-  if (!verified) {
-    throw new Error('Verification failed');
-  }
-
-  if (!sender.isDestroyed()) {
-    sender.send('download-extract');
-  }
-
-  const basename = path.basename(savePath, path.extname(savePath));
-  const { name } = path.parse(basename);
-  const extractDir = path.join(directory, name);
-  await makeDir(extractDir, { fs });
-  await extractAsset(savePath, extractDir, onProgress);
-  await del(savePath, { force: true });
-
-  const dataPath = path.normalize(global.dataPath);
-  await cpy('*', dataPath, { cwd: extractDir });
-  await del(directory, { force: true });
-
-  log.info('Asset ready:', savePath, '->', dataPath);
 };
 
 module.exports = {

@@ -79,7 +79,7 @@ module.exports = environment => {
 
     assets: {
       data: {
-        url: 'http://165.22.253.160/data.tar.xz',
+        url: 'http://165.22.253.160/data.ldb',
       },
     },
 
