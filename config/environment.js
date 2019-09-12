@@ -73,8 +73,8 @@ module.exports = environment => {
     },
 
     links: {
-      eula: '#',
-      privacyPolicy: '#',
+      eula: 'https://bitcoin.black/desktop-wallet-eula/',
+      privacyPolicy: 'https://bitcoin.black/desktop-wallet-privacy-policy',
     },
 
     assets: {
