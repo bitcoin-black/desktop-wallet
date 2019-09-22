@@ -1,0 +1,30 @@
+{{#link-to 'wallets.overview.accounts.history' account tagName='button' disabled=(not account.id)}}
+  <div class="account-card-content">
+    {{#if account.id}}
+      {{#if hideHistory}}
+        {{#link-to 'wallets.overview.accounts.settings' account bubbles=false class='settings' title=(t 'editAccountSettings')}}
+          {{bs-tooltip fade=true delayShow=500 placement='top' title=(t 'editAccountSettings')}}
+          {{fa-icon 'cog' size='2' ariaLabel=(t 'editAccountSettings')}}
+        {{/link-to}}
+        {{qr-code text=(to-nano-prefix account.id) width=170 height=170}}
+      {{/if}}
+      <p class="balance">
+        <sup>
+          <img src="{{root-url "images/logo.svg"}}" class="logo-pic" alt="{{t 'BCB'}}">
+        </sup>
+        {{format-amount account.balance}}
+        <br>
+        <sub>+{{format-amount account.pending}}</sub>
+      </p>
+      <div role="button" class="label" {{action (optional) bubbles=false}}>
+        {{bs-tooltip fade=true delayShow=1000 placement='bottom' title=(t 'copyAddress')}}
+        {{#copy-button tagName='div' class="d-flex flex-column justify-content-center" buttonType=null clipboardText=(to-nano-prefix account.id) success=(action 'copyAddress' (concat (slice 0 9 account.id) '...' (slice 59 64 account.id)))}}
+          <span><span class="label-color">{{ slice 0 9 (to-nano-prefix account.id)}}</span><span>{{slice 9 59 account.id}}</span><span class="label-color">{{slice 59 64 account.id}}</span></span>
+        {{/copy-button}}
+      </div>
+    {{else}}
+      {{fa-icon "spinner" size=5 spin=true ariaLabel=(t 'loading')}}
+    {{/if}}
+  </div>
+{{/link-to}}
+

@@ -1,0 +1,28 @@
+<div class="col-lg-10 col-11 history-item send d-flex justify-content-around align-items-center">
+  <div class="row w-100">
+    <div class="col-12 col-sm-2 justify-content-center d-flex">
+      {{#if (eq entry.type 'send')}}
+        {{fa-icon "paper-plane" class="send"}} <span class="ml-2 muted">Outgoing</span>
+      {{else}}
+        {{fa-icon "envelope-open" class="receive"}} <span class="ml-2 muted">Incoming</span>
+      {{/if}}
+    </div>
+    <div class="col-12 col-sm-2 justify-content-center d-flex">
+      <p>
+        <sup>
+          <img class="bcb-logo" src="{{root-url "images/logo.svg"}}" alt="{{t 'BCB'}}">
+        </sup>
+        <strong>{{format-amount entry.amount}}</strong>
+      </p>
+    </div>
+    <div class="col-12 col-sm-8 d-flex">
+      <p class="text-truncate">
+        {{#if (eq entry.type 'send')}}
+           To: <strong>{{entry.account}}</strong>
+        {{else}}
+           From: <strong>{{entry.account}}</strong>
+        {{/if}}
+      </p>
+    </div>
+  </div>
+</div>

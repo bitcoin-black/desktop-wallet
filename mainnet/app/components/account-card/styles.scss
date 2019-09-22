@@ -1,0 +1,99 @@
+button {
+  cursor: pointer;
+  border: 0;
+  outline: none;
+  background-color: transparent;
+
+  &.active .account-card-content {
+    transform: scale(1.1) !important;
+  }
+}
+
+.account-card-content {
+  position: relative;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  transition: 0.4s;
+  width: 280px;
+
+  &:hover,
+  &.active {
+    transform: scale(1.1) !important;
+
+    .settings {
+      display: block;
+    }
+  }
+
+  .settings {
+    display: none;
+    outline: none;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+
+  img.qr-code {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  i {
+    color: $yellow;
+  }
+
+  sup > img {
+    display: inline-block;
+  }
+
+  .balance {
+    color: $black;
+    font-size: 20px;
+    line-height: 1;
+    margin: 10px 0;
+    text-align: center;
+  }
+  .logo-pic {
+    width: 8px;
+  }
+
+  .balance span {
+    font-size: 13px;
+  }
+
+  .balance sub {
+    color: $light-grey;
+    font-size: 14px;
+  }
+
+  .label {
+    width: 100%;
+  }
+
+  .label-color {
+    color: $yellow;
+  }
+
+  .copy-btn {
+    outline: none;
+    border: 0;
+    margin: 0;
+    padding: 10px;
+    height: 60px;
+    font-size: 0.7rem;
+    background-color: $black;
+    color: white;
+    overflow-wrap: break-word;
+
+    big {
+      font-size: 1.1rem;
+    }
+  }
+}

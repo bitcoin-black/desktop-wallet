@@ -1,0 +1,18 @@
+<div>
+  <div class="container send-form">
+    <div class="row justify-content-md-center align-items-center h-100">
+      <div class="col col-lg-6 col-sm-12">
+        {{yield}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<button class="toggle" {{action (optional (if isExpanded onClose onOpen))}}>
+  {{#if isExpanded}}
+    {{fa-icon (if isExpanded 'times' ) ariaLabel=(if isExpanded (t 'close') )}}
+  {{else}}
+    <img src="{{root-url "images/send-icon.png"}}" alt="" class="cover">
+  {{/if}}
+
+</button>

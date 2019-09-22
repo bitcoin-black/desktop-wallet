@@ -1,0 +1,37 @@
+.setup {
+  height: 100vh;
+
+  &.info {
+    background-color: $light-blue;
+    background-image: url(../../images/setup.jpg);
+    background-position: center;
+    background-size: cover;
+    color: white;
+
+    h1 {
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    }
+
+    h5 {
+      font-weight: 400;
+      line-height: 1.6;
+    }
+  }
+}
+
+.setup-step {
+  .btn-lg {
+    width: 49%;
+  }
+
+  .lead {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+  .text-muted {
+    display: block;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+}

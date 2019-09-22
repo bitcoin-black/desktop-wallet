@@ -1,0 +1,43 @@
+& {
+  position: absolute;
+  width: 30%;
+  min-width: 320px;
+  top: 100px;
+  right: 0;
+  z-index: 10000;
+}
+
+.alert {
+  box-shadow: -1px 1px 3px rgba(0,0,0,0.3);
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  text-overflow: ellipsis;
+  transform: translateX(100%);
+  animation: 3s ease-in-out forwards slide-in;
+  will-change: transform;
+
+  @keyframes slide-in {
+    10% {
+      transform: translateX(0);
+    }
+    90% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+.alert-success {
+  color: $white;
+  background-color: $green;
+}
+
+.alert-danger {
+  color: white;
+  background-color: $red;
+}

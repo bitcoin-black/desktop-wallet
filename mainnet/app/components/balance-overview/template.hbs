@@ -1,0 +1,39 @@
+<section>
+  <div class="contianer">
+    <div class="row">
+      <div class="col text-center">
+        <ul class="nav justify-content-center currency-tabs">
+          <li class="nav-item">
+            <a class="nav-link {{if (eq currency 'BCB') 'active'}}" href="#" {{action onChangeCurrency 'BCB' on='click'}}>
+              {{t 'BCB'}}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{if (eq currency 'USD') 'active'}}" href="#" {{action onChangeCurrency 'USD' on='click'}}>
+              {{t 'USD'}}
+            </a>
+          </li>
+        </ul>
+        {{#if (eq currency 'USD')}}
+          <span class="subtext" >USD value calculated based on IEO price of 0.01 per bcb coin</span>
+        {{/if}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="text-center">
+          <h1 class="balance">
+            {{wallet-balance amount=wallet.balance currency=currency exchangeRate=exchangeRate}}
+          </h1>
+          <p class="pending">
+            {{t 'balancePending'}}
+            <br>
+            <span>
+              {{wallet-balance amount=wallet.pending currency=currency exchangeRate=exchangeRate}}
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

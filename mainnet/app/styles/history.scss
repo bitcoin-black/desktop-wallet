@@ -1,0 +1,72 @@
+.history-item-list {
+  background-color: transparent;
+  height: 50vh;
+  max-height: 50vh;
+  overflow: auto;
+
+  > div {
+    width: 100%;
+  }
+  &::-webkit-scrollbar {
+    width: 6px;
+    margin-right: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.history-item {
+  background: $white;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 20px 0;
+
+  p {
+    margin: 0;
+  }
+
+  .send {
+    color: $light-blue;
+    margin-top: 3px;
+  }
+
+  .receive {
+    color: $yellow;
+    margin-top: 3px;
+  }
+
+  .bcb-logo {
+    width: 10px;
+    margin-top: 5px;
+    margin-right: 5px;
+  }
+
+  i {
+    font-size: 24px;
+  }
+}
+
+.toggle-history-arrow,
+.toggle-history-arrow:hover {
+  align-items: center;
+  border-radius: 100%;
+  color: $white;
+  display: flex;
+  height: 25px;
+  justify-content: center;
+  left: calc(50% - 25px);
+  margin: 0 auto 20px;
+  text-decoration: none;
+  width: 25px;
+}
+
+.no-history {
+  height: 100%;
+  color: $black;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  text-align: center;
+}

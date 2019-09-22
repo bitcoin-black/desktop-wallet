@@ -1,0 +1,10 @@
+{{#bs-modal size='lg' renderInPlace=true onHide=(route-action 'cancel') as |modal|}}
+  {{#component modal.header}}
+    <h4 class="modal-title">
+      {{t 'walletSettings'}}
+    </h4>
+  {{/component}}
+  {{#component modal.body}}
+    {{wallet-settings wallet=wallet seed=seed representative=wallet.representative onChangeRepresentative=(route-action 'changeRepresentative') onChangePassword=(route-action 'changePassword')}}
+  {{/component}}
+{{/bs-modal}}

@@ -1,0 +1,25 @@
+{{#fa-icon (if isSyncing 'sync' 'signal')
+    spin=isSyncing
+    class=(if (not isPeerless) 'text-success')}}
+{{/fa-icon}}
+{{#bs-tooltip}}
+  <ul class="m-0 list-unstyled">
+    <li>
+      <b>{{t 'status.state'}}:</b>
+      {{#if status.isFulfilled}}
+        {{#if isPeerless}}
+          {{t 'status.connecting'}}
+        {{else}}
+          {{if isSyncing (t 'syncing') (t 'status.online')}}
+        {{/if}}
+      {{else}}
+        {{t 'status.connecting'}}
+      {{/if}}
+    </li>
+    {{#if status.isFulfilled}}
+      <li><b>{{t 'status.count'}}:</b> {{format-number status.blocks.count}}</li>
+      <li><b>{{t 'status.unchecked'}}:</b> {{format-number status.blocks.unchecked}}</li>
+      <li><b>{{t 'status.peers'}}:</b> {{format-number status.peers.length}}</li>
+    {{/if}}
+  </ul>
+{{/bs-tooltip}}
