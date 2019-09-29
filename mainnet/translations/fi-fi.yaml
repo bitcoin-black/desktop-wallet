@@ -1,4 +1,4 @@
-product: 'Bitcoin Black Betanet Wallet'
+product: 'Bitcoin Black Wallet'
 cancel: 'Peruuta'
 done: 'Valmis'
 loading: 'Ladataan...'
@@ -113,7 +113,7 @@ wallets:
 setup:
   lead: 'Aloitetaan lompakkosi käyttöönotto.'
   instructions: >
-    Bitcoin Black Betanet Wallet Desktopin käytön aloittaaksesi, sinun täytyy ensin luoda uusi lompakko tai tuoda vanha lompakko siemenkoodilla.
+    Bitcoin Black Wallet Desktopin käytön aloittaaksesi, sinun täytyy ensin luoda uusi lompakko tai tuoda vanha lompakko siemenkoodilla.
   create: 'Luo uusi lompakko'
   or: 'tai'
   import: 'Tuo lompakko'

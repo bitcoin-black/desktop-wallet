@@ -1,13 +1,14 @@
 {
     "version": "1",
     "address": "::1",
-    "port": "15000",
+    "port": "9076",
     "enable_control": "true",
     "max_json_depth": "20",
     "max_request_size": "33554432",
     "process": {
         "io_threads": "4",
-        "ipc_port": "36000",
+        "ipc_port": "56000",
         "num_ipc_connections": "4"
     }
 }
+

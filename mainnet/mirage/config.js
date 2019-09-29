@@ -27,7 +27,7 @@ export default function() {
   this.passthrough('/translations/**');
 
   // Live network
-  this.passthrough('http://localhost:7076');
+  this.passthrough('http://localhost:9076');
 
   // Beta network
   this.passthrough('http://localhost:15000');

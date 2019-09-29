@@ -44,7 +44,7 @@ const generateCert = async commonName => {
     { name: 'countryName', value: '' },
     { name: 'stateOrProvinceName', value: '' },
     { name: 'localityName', value: '' },
-    { name: 'organizationName', value: 'Bitcoin Black Betanet Wallet' },
+    { name: 'organizationName', value: 'Bitcoin Black Wallet' },
     { name: 'organizationalUnitName', value: 'Desktop' },
     { name: 'emailAddress', value: '' },
   ];
@@ -77,9 +77,9 @@ const getLoopbackAddress = () =>
 const getNetwork = async () => {
   switch (global.environment) {
     case 'production':
-      return 'beta';
+      return 'live';
     case 'development':
-      return 'beta';
+      return 'live';
     default:
       return 'test';
   }

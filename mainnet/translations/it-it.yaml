@@ -1,4 +1,4 @@
-product: 'Bitcoin Black Betanet Wallet'
+product: 'Bitcoin Black Wallet'
 cancel: 'Cancella'
 done: 'Fatto'
 loading: 'Caricamento...'
@@ -113,7 +113,7 @@ wallets:
 setup:
   lead: 'Impostiamo il tuo wallet.'
   instructions: >
-    Per iniziare ad usare Bitcoin Black Betanet Wallet, dovrai prima creare un nuovo wallet o importare un wallet
+    Per iniziare ad usare Bitcoin Black Wallet, dovrai prima creare un nuovo wallet o importare un wallet
     usando il seed.
   create: 'Crea un nuovo Wallet'
   or: 'o'

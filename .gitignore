@@ -1,12 +1,15 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
-/tmp
+/betanet/dist
+/mainnet/tmp
 
 # dependencies
 /node_modules
-/bower_components
+/betanet/bower_components
+/mainnet/bower_components
+/betanet/node_modules
+/mainnet/node_modules
 
 # misc
 .config

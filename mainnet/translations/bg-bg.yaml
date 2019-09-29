@@ -1,4 +1,4 @@
-product: 'Bitcoin Black Betanet Wallet'
+product: 'Bitcoin Black Wallet'
 cancel: 'Отказ'
 done: 'Готово'
 loading: 'Зареждане...'
@@ -113,7 +113,7 @@ wallets:
 setup:
   lead: 'Нека започнем със създаването на портмонето ви.'
   instructions: >
-    За да използвате Bitcoin Black Betanet Wallet, първо трябва да създадете ново портмоне или да импортирате вече съществуващо с помощта на таен ключ.
+    За да използвате Bitcoin Black Wallet, първо трябва да създадете ново портмоне или да импортирате вече съществуващо с помощта на таен ключ.
   create: 'Ново портмоне'
   or: 'или'
   import: 'Импортиране'

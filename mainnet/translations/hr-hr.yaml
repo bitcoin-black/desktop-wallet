@@ -1,4 +1,4 @@
-product: 'Bitcoin Black Betanet Wallet'
+product: 'Bitcoin Black Wallet'
 cancel: 'Otkaži'
 done: 'Gotovo'
 loading: 'Učitavanje...'
@@ -113,7 +113,7 @@ wallets:
 setup:
   lead: 'Idemo postaviti vaš novčanik.'
   instructions: >
-    Kako bi mogli početi koristiti Bitcoin Black Betanet Wallet, prvo morate napraviti novi novčanik ili uvesti podatke
+    Kako bi mogli početi koristiti Bitcoin Black Wallet, prvo morate napraviti novi novčanik ili uvesti podatke
     od svog novčanika koristeći seed.
   create: 'Napravi Novi Novčanik'
   or: 'ili'

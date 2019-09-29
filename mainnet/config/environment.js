@@ -79,12 +79,12 @@ module.exports = environment => {
 
     assets: {
       data: {
-        url: 'http://165.22.253.160/data.ldb',
+        url: 'http://165.22.253.160/livedb/data.ldb',
       },
     },
 
     rpc: {
-      host: 'http://localhost:15000',
+      host: 'http://localhost:9076',
       namespace: null,
     },
   };
@@ -99,7 +99,7 @@ module.exports = environment => {
     ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.contentSecurityPolicy['connect-src'].push('http://localhost:15000');
+    ENV.contentSecurityPolicy['connect-src'].push('http://localhost:9076');
   }
 
   if (environment === 'test') {
@@ -134,9 +134,9 @@ module.exports = environment => {
     ENV.contentSecurityPolicy['script-src'].push(
       "'sha256-k8ysrhm1lqKyZpON3/YocPOUXAF4sGsu7JIycGDxCWw='",
     );
-    ENV.contentSecurityPolicy['connect-src'].push('http://localhost:15000');
+    ENV.contentSecurityPolicy['connect-src'].push('http://localhost:9076');
 
-    ENV.rpc.host = 'http://localhost:15000';
+    ENV.rpc.host = 'http://localhost:9076';
     ENV.rpc.namespace = 'rpc';
   }
 
