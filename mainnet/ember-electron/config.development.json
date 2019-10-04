@@ -44,12 +44,12 @@
             "::ffff:206.189.143.185"
         ],
         "preconfigured_representatives": [
-            "bcb_3k1t686z3hacjzigg3a4zrik4pgmsijxsad8r8ieo916ewfkr17n4wos8yq9",
-            "bcb_1f6m16wnueiz84fo5fn3kwdoqen8j1tnt87fkifcw9peumie84dj3eeb6z8k",
-            "bcb_3qtxce9t3tuup9jkh3a3k3y9z4doh65gn4gnnzzs7s6riwnwqth1y9do887g",
-            "bcb_3kc5eysk5egs57aww3xf94jftwd9euum4zw33nyxosotbem6jpmozczdhwyi",
-            "bcb_3ipnwok4ojwrhzuoqz3u8btt34rzeh14ersropcg7ys9z5kyjjqeuxhhcrg7",
-            "bcb_16i76tq8ujah814w71ogirzm9x7z6moyii657qijbwbqtyw1ge3nwkwyqwq6"
+            "bcb_3zscrcrgbusx7ck3pgu9xfe5fe5a6ecewguweh1dry7ic7xg9cnmfk1r6ceg",
+            "bcb_1t4fnppzaoa56t67wbxj99n68pnednh6x53158fxej63xdwj849g78c7nuc5",
+            "bcb_1nw3ize5wbfq5erwyo9ofggw3o3tmhfrcomcekn5sfkpt3yrkxmz3fcm8u9d",
+            "bcb_1pwao33mhd164nptat8tq4rdeerpi6pdh7ewophfqknt8m5mmyudckpjary7",
+            "bcb_3q3kpyzotq5njbieg6jq5h3afybe4issnmnoj9auu1mk6k9jqh3p9gotx5fy",
+            "bcb_3zt7r4frys7ycagcspc5pn5kum5yk1m9m7jew5fijo4dng837mbdp4wy6bfg"
         ],
         "online_weight_minimum": "60000000000000000000000000000000000000",
         "online_weight_quorum": "50",
