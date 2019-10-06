@@ -1,6 +1,6 @@
 {
   "name": "@bcb-wallet-company/bcb-wallet-desktop",
-  "version": "1.9.0",
+  "version": "1.9.3",
   "productName": "Bitcoin Black Betanet Wallet",
   "genericName": "Bitcoin Black Betanet Wallet",
   "description": "An ambitious bcb wallet for desktop and web.",
@@ -52,19 +52,12 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
     }
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
-    ]
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
     ]
   },
   "config": {
@@ -115,7 +108,6 @@
     "keytar": "^4.12.0",
     "load-json-file": "^6.2.0",
     "locale2": "^2.3.1",
-    "lzma-native": "^4.0.5",
     "make-dir": "^3.0.0",
     "nanoid": "^2.0.3",
     "node-forge": "^0.8.5",
