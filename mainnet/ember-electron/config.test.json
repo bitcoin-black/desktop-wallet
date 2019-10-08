@@ -84,7 +84,7 @@
         },
         "ipc": {
             "tcp": {
-                "enable": "true",
+                "enable": "false",
                 "port": "46000",
                 "io_timeout": "15"
             },
