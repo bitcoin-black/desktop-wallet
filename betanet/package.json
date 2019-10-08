@@ -1,6 +1,6 @@
 {
   "name": "@bcb-wallet-company/bcb-wallet-desktop",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "productName": "Bitcoin Black Betanet Wallet",
   "genericName": "Bitcoin Black Betanet Wallet",
   "description": "An ambitious bcb wallet for desktop and web.",
