@@ -85,6 +85,34 @@ const getNetwork = async () => {
   }
 };
 
+const validateSSLLibrary = () => {
+  switch (process.platform) {
+    case 'win32':
+      let windowsPath = 'C:/Windows/System32/'
+      let libCryptoDLL = 'libcrypto-1_1-x64.dll'
+      let libSSLDLL = 'libssl-1_1-x64.dll'
+
+      if (fs.existsSync(windowsPath + libCryptoDLL) && fs.existsSync(windowsPath + libSSLDLL)) {
+        log.info('OpenSSL installation found')
+      }
+
+      if (!fs.existsSync(windowsPath + libCryptoDLL)) {
+        log.info(windowsPath + libCryptoDLL + ' not found')
+      }
+
+      if (!fs.existsSync(windowsPath + libSSLDLL)) {
+        log.info(windowsPath + libSSLDLL + ' not found')
+      }
+      break
+
+    case 'linux':
+      break
+
+    case 'darwin':
+      break
+  }
+}
+
 const forceKill = (child, timeout = 5000) => {
   if (!child.killed) {
     child.kill();
@@ -223,6 +251,9 @@ const startDaemon = async () => {
       return typeof value === 'object' ? value : String(value);
     },
   });
+
+  log.info(`Checking OpenSSL Installation:`)
+  validateSSLLibrary()
 
   const cmd = path.join(global.resourcesPath, toExecutableName('btcb_node'));
   log.info('Starting node:', cmd);

@@ -5,7 +5,7 @@
 # These three must be integers
 !define VERSIONMAJOR 1
 !define VERSIONMINOR 9
-!define VERSIONBUILD 5
+!define VERSIONBUILD 6
 # These will be displayed by the "Click here for support information" link in "Add/Remove Programs"
 # It is possible to use "mailto:" links in here to open the email client
 !define HELPURL "https://bitcoin.black/" # "Support Information" link
@@ -33,18 +33,33 @@ page directory
 Page instfiles
  
 !macro VerifyUserIsAdmin
-UserInfo::GetAccountType
-pop $0
-${If} $0 != "admin" ;Require admin rights on NT4+
-        messageBox mb_iconstop "Administrator rights required!"
-        setErrorLevel 740 ;ERROR_ELEVATION_REQUIRED
-        quit
-${EndIf}
+	UserInfo::GetAccountType
+	pop $0
+	${If} $0 != "admin" ;Require admin rights on NT4+
+			messageBox mb_iconstop "Administrator rights required!"
+			setErrorLevel 740 ;ERROR_ELEVATION_REQUIRED
+			quit
+	${EndIf}
 !macroend
  
+!macro checkLibCryptoDLL
+	IfFileExists C:\Windows\System32\libcrypto-1_1-x64.dll LibFunc
+        MessageBox MB_ICONEXCLAMATION|MB_OK "OpenSSL Library not found. Please download and install OpenSSL setup. Click 'OK' to open download link."
+          ExecShell open "https://slproweb.com/download/Win64OpenSSL_Light-1_1_0L.exe"
+		  Abort ; 
+    LibFunc:
+
+	IfFileExists C:\Windows\System32\libssl-1_1-x64.dll SSLFunc
+        MessageBox MB_ICONEXCLAMATION|MB_OK "OpenSSL Library not found. Please download and install OpenSSL setup. Click 'OK' to open download link."
+          ExecShell open "https://slproweb.com/download/Win64OpenSSL_Light-1_1_0L.exe"
+		  Abort ; 
+    SSLFunc:
+!macroend
+
 function .onInit
 	setShellVarContext all
 	!insertmacro VerifyUserIsAdmin
+	!insertmacro checkLibCryptoDLL
 functionEnd
  
 section "install"
@@ -96,7 +111,7 @@ function un.onInit
 	next:
 	!insertmacro VerifyUserIsAdmin
 functionEnd
- 
+
 section "uninstall"
  
 	# Remove Start Menu launcher
