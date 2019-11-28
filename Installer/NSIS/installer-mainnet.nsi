@@ -41,25 +41,10 @@ Page instfiles
 			quit
 	${EndIf}
 !macroend
- 
-!macro checkLibCryptoDLL
-	IfFileExists C:\Windows\System32\libcrypto-1_1-x64.dll LibFunc
-        MessageBox MB_ICONEXCLAMATION|MB_OK "OpenSSL Library not found. Please download and install OpenSSL setup. Click 'OK' to open download link."
-          ExecShell open "https://slproweb.com/download/Win64OpenSSL_Light-1_1_0L.exe"
-		  Abort ; 
-    LibFunc:
-
-	IfFileExists C:\Windows\System32\libssl-1_1-x64.dll SSLFunc
-        MessageBox MB_ICONEXCLAMATION|MB_OK "OpenSSL Library not found. Please download and install OpenSSL setup. Click 'OK' to open download link."
-          ExecShell open "https://slproweb.com/download/Win64OpenSSL_Light-1_1_0L.exe"
-		  Abort ; 
-    SSLFunc:
-!macroend
 
 function .onInit
 	setShellVarContext all
 	!insertmacro VerifyUserIsAdmin
-	!insertmacro checkLibCryptoDLL
 functionEnd
  
 section "install"

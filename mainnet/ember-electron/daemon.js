@@ -96,13 +96,26 @@ const validateSSLLibrary = () => {
         log.info('OpenSSL installation found')
       }
 
-      if (!fs.existsSync(windowsPath + libCryptoDLL)) {
-        log.info(windowsPath + libCryptoDLL + ' not found')
+      if (!fs.existsSync(windowsPath + libCryptoDLL) || !fs.existsSync(windowsPath + libSSLDLL)) {
+        log.info('OpenSSL not installed')
+        const { BrowserWindow } = require('electron')
+        require('electron').dialog.showMessageBox(
+          new BrowserWindow({
+            show: false,
+            alwaysOnTop: true
+          }), {
+          type: 'error',
+          buttons: ['Download'],
+          message: 'OpenSSL Library not found',
+          detail: 'The application requires OpenSSL Library to be installed. Please download and install OpenSSL setup and restart the application.'
+        }, (response) => {
+          if (response == '0') {
+            require('electron').shell.openExternal('https://slproweb.com/download/Win64OpenSSL_Light-1_1_0L.exe')
+            app.quit()
+          }
+        })
       }
 
-      if (!fs.existsSync(windowsPath + libSSLDLL)) {
-        log.info(windowsPath + libSSLDLL + ' not found')
-      }
       break
 
     case 'linux':
