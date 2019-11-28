@@ -107,11 +107,15 @@ const validateSSLLibrary = () => {
           type: 'error',
           buttons: ['Download'],
           message: 'OpenSSL Library not found',
-          detail: 'The application requires OpenSSL Library to be installed. Please download and install OpenSSL setup and restart the application.'
+          detail: 'The application requires OpenSSL Library to be installed. Please install OpenSSL to proceed.'
         }, (response) => {
           if (response == '0') {
-            require('electron').shell.openExternal('https://slproweb.com/download/Win64OpenSSL_Light-1_1_0L.exe')
-            app.quit()
+            // require('electron').shell.openExternal('https://slproweb.com/download/Win64OpenSSL_Light-1_1_0L.exe')
+            // app.quit()
+            require('child_process').exec(path.join(global.resourcesPath, 'openssl.exe'), () => {
+              app.relaunch()
+              app.exit(0)
+            })
           }
         })
       }
