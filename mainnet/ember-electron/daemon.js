@@ -131,6 +131,52 @@ const validateSSLLibrary = () => {
   }
 }
 
+const validateVisualStudioLibrary = () => {
+  switch (process.platform) {
+    case 'win32':
+      let windowsPath = 'C:/Windows/System32/'
+      let VCRuntimeDLL = 'VCRUNTIME140.dll'
+
+      if (fs.existsSync(windowsPath + VCRuntimeDLL)) {
+        log.info('VC++ installation found')
+      }
+
+      if (!fs.existsSync(windowsPath + VCRuntimeDLL)) {
+        log.info('VC++ not installed')
+        const { BrowserWindow } = require('electron')
+        require('electron').dialog.showMessageBox(
+          new BrowserWindow({
+            show: false,
+            alwaysOnTop: true
+          }), {
+          type: 'error',
+          buttons: ['Install MS Visual C++', 'Quit'],
+          message: 'Microsoft Visual C++ Library not found',
+          detail: 'The application requires Microsoft Visual C++ Library to be installed. Please install Microsoft Visual C++ to proceed.'
+        }, (response) => {
+          if (response == '0') {
+            require('child_process').exec(`"${path.join(global.resourcesPath, 'msvc.exe')}"`, (e) => {
+              if (e) log.error(e)
+              app.relaunch()
+              app.exit(0)
+            })
+          } else {
+            app.quit()
+          }
+        })
+      }
+
+      break
+
+    case 'linux':
+      break
+
+    case 'darwin':
+      break
+  }
+}
+
+
 const forceKill = (child, timeout = 5000) => {
   if (!child.killed) {
     child.kill();
@@ -272,6 +318,8 @@ const startDaemon = async () => {
 
   log.info(`Checking OpenSSL Installation:`)
   validateSSLLibrary()
+  log.info(`Checking MSVC Installation:`)
+  validateVisualStudioLibrary()
 
   const cmd = path.join(global.resourcesPath, toExecutableName('btcb_node'));
   log.info('Starting node:', cmd);
