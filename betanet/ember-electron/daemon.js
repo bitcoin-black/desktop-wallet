@@ -85,6 +85,161 @@ const getNetwork = async () => {
   }
 };
 
+const checkOpenSSLLibraryInstallation = () => {
+  return new Promise((resolve) => {
+    switch (process.platform) {
+      case 'win32':
+
+        log.info(`Checking OpenSSL Installation:`)
+        let windowsPath = 'C:/Windows/System32/'
+        let libCryptoDLL = 'libcrypto-1_1-x64.dll'
+        let libSSLDLL = 'libssl-1_1-x64.dll'
+
+        if (fs.existsSync(windowsPath + libCryptoDLL) && fs.existsSync(windowsPath + libSSLDLL)) {
+          log.info('OpenSSL installation found')
+          return resolve()
+        }
+
+        if (!fs.existsSync(windowsPath + libCryptoDLL) || !fs.existsSync(windowsPath + libSSLDLL)) {
+          log.info('OpenSSL not installed')
+          const { BrowserWindow } = require('electron')
+          require('electron').dialog.showMessageBox(
+            new BrowserWindow({
+              show: false,
+              alwaysOnTop: true
+            }), {
+            type: 'error',
+            buttons: ['Install OpenSSL', 'Quit'],
+            message: 'OpenSSL Library not found',
+            detail: 'The application requires OpenSSL Library to be installed. Please install OpenSSL to proceed.'
+          }, (response) => {
+            if (response == '0') {
+              require('child_process').exec(`"${path.join(global.resourcesPath, 'openssl.exe')}"`, (e) => {
+                if (e) log.error(e)
+                app.relaunch()
+                app.exit(0)
+              })
+            } else {
+              app.quit()
+            }
+          })
+        }
+
+        break
+
+      case 'linux':
+        return resolve()
+        break
+
+      case 'darwin':
+        return resolve()
+        break
+    }
+  })
+}
+
+const checkMSVC13Installation = () => {
+  return new Promise((resolve) => {
+    switch (process.platform) {
+      case 'win32':
+        log.info(`Checking MSVC13 Installation:`)
+        let windowsPath = 'C:/Windows/System32/'
+        let VCRuntimeDLL = 'msvcr120.dll'
+
+        if (fs.existsSync(windowsPath + VCRuntimeDLL)) {
+          log.info('MSVC 2013 installation found')
+          return resolve()
+        }
+
+        if (!fs.existsSync(windowsPath + VCRuntimeDLL)) {
+          log.info('MSVC 2013 not installed')
+          const { BrowserWindow } = require('electron')
+          require('electron').dialog.showMessageBox(
+            new BrowserWindow({
+              show: false,
+              alwaysOnTop: true
+            }), {
+            type: 'error',
+            buttons: ['Install MS Visual C++', 'Quit'],
+            message: 'Microsoft Visual C++ 2013 Library not found',
+            detail: 'The application requires Microsoft Visual C++ 2013 Library to be installed. Please install Microsoft Visual C++ 2013 to proceed.'
+          }, (response) => {
+            if (response == '0') {
+              require('child_process').exec(`"${path.join(global.resourcesPath, 'msvc13.exe')}"`, (e) => {
+                if (e) log.error(e)
+                app.relaunch()
+                app.exit(0)
+              })
+            } else {
+              app.quit()
+            }
+          })
+        }
+
+        break
+
+      case 'linux':
+        return resolve()
+        break
+
+      case 'darwin':
+        return resolve()
+        break
+    }
+  })
+}
+
+const checkMSVC15Installation = () => {
+  return new Promise((resolve) => {
+    switch (process.platform) {
+      case 'win32':
+        log.info(`Checking MSVC15 Installation:`)
+        let windowsPath = 'C:/Windows/System32/'
+        let VCRuntimeDLL = 'VCRUNTIME140.dll'
+
+        if (fs.existsSync(windowsPath + VCRuntimeDLL)) {
+          log.info('MSVC15 installation found')
+          return resolve()
+        }
+
+        if (!fs.existsSync(windowsPath + VCRuntimeDLL)) {
+          log.info('MSVC15 not installed')
+          const { BrowserWindow } = require('electron')
+          require('electron').dialog.showMessageBox(
+            new BrowserWindow({
+              show: false,
+              alwaysOnTop: true
+            }), {
+            type: 'error',
+            buttons: ['Install MS Visual C++', 'Quit'],
+            message: 'Microsoft Visual C++ 2015 Library not found',
+            detail: 'The application requires Microsoft Visual C++ 2015 Library to be installed. Please install Microsoft Visual C++ 2015 to proceed.'
+          }, (response) => {
+            if (response == '0') {
+              require('child_process').exec(`"${path.join(global.resourcesPath, 'msvc15.exe')}"`, (e) => {
+                if (e) log.error(e)
+                app.relaunch()
+                app.exit(0)
+              })
+            } else {
+              app.quit()
+            }
+          })
+        }
+
+        break
+
+      case 'linux':
+        return resolve()
+        break
+
+      case 'darwin':
+        return resolve()
+        break
+    }
+  })
+}
+
 const forceKill = (child, timeout = 5000) => {
   if (!child.killed) {
     child.kill();
@@ -223,6 +378,12 @@ const startDaemon = async () => {
       return typeof value === 'object' ? value : String(value);
     },
   });
+
+  await checkOpenSSLLibraryInstallation()
+
+  await checkMSVC13Installation()
+
+  await checkMSVC15Installation()
 
   const cmd = path.join(global.resourcesPath, toExecutableName('btcb_node'));
   log.info('Starting node:', cmd);

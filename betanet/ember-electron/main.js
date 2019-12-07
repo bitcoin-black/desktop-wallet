@@ -74,7 +74,7 @@ const contextMenu = require('electron-context-menu');
 const protocolServe = require('electron-protocol-serve');
 const { default: installExtension, EMBER_INSPECTOR } = require('electron-devtools-installer');
 
-const updateElectronApp = require('update-electron-app');
+// const updateElectronApp = require('update-electron-app');
 
 const { createWindow } = require('./window');
 const { downloadStart, nodeStart, keychainGet, keychainSet, keychainDelete } = require('./ipc');
@@ -175,38 +175,38 @@ const run = async () => {
 
   await app.whenReady();
 
-  if (!is.development) {
-    autoUpdater.on('error', err => {
-      log.error('Error updating:', err);
-    });
+  // if (!is.development) {
+  //   autoUpdater.on('error', err => {
+  //     log.error('Error updating:', err);
+  //   });
 
-    autoUpdater.on('checking-for-update', () => {
-      log.info('Checking for update:', productName, '>', version);
-      global.isUpdating = false;
-    });
+  //   autoUpdater.on('checking-for-update', () => {
+  //     log.info('Checking for update:', productName, '>', version);
+  //     global.isUpdating = false;
+  //   });
 
-    autoUpdater.on('update-available', () => {
-      log.info('Update available:', productName, '>', version, '(downloading...)');
-    });
+  //   autoUpdater.on('update-available', () => {
+  //     log.info('Update available:', productName, '>', version, '(downloading...)');
+  //   });
 
-    autoUpdater.on('update-not-available', () => {
-      log.info('Update not available:', productName, '>', version);
-    });
+  //   autoUpdater.on('update-not-available', () => {
+  //     log.info('Update not available:', productName, '>', version);
+  //   });
 
-    autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
-      log.info('Update downloaded:', productName, releaseName);
-      global.isUpdating = true;
-    });
+  //   autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+  //     log.info('Update downloaded:', productName, releaseName);
+  //     global.isUpdating = true;
+  //   });
 
-    updateElectronApp({
-      updateInterval: '30 minutes',
-      logger: {
-        log(...args) {
-          return log.debug('[update-electron-app]', ...args);
-        },
-      },
-    });
-  }
+  //   updateElectronApp({
+  //     updateInterval: '30 minutes',
+  //     logger: {
+  //       log(...args) {
+  //         return log.debug('[update-electron-app]', ...args);
+  //       },
+  //     },
+  //   });
+  // }
 
   const store = new Store({ name: 'settings' });
   if (!store.has('dataPath')) {
