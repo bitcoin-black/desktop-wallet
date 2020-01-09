@@ -1,41 +1,30 @@
+-- BETANET WALLETS --
 Seed: C449E099D785EF5BD34C963E8962D2C6314BA7C81AEA2DDFD8F2A1803FADDCC8
 PrvKey: 365AFBAAC6668138F1E861BE19CAA82A5D616A74D3F25D1E08F3C6A31B8E12D9
-AACA28DE183AE37541B4DCF045C3BEB0BA46113DD8B3E62729DCA44D4F8BD193
-bcb_3cpc75h3igq5go1ubq9iaq3uxe7taramup7mwrmkmq76bo9rqnemja9ziigi
-
+Public key: AACA28DE183AE37541B4DCF045C3BEB0BA46113DD8B3E62729DCA44D4F8BD193
+Account address: bcb_3cpc75h3igq5go1ubq9iaq3uxe7taramup7mwrmkmq76bo9rqnemja9ziigi
 
 Seed: 8700A784D96EA3A0C7062458C2D7B4527C7399F772F1B850D97EF8CB207E6527
 PrvKey: 04ADBA70DCDFCEED527CADFE69AB615CEDA093A474208E95629AC3E1714F9795
-3932455082170C613222E00717E6E41E22AC836D90F2A985FE17F078829CAC5E
-bcb_1gbkaoaa67ree6s47r194zmga9j4ok3pu69ko84zw7zih43bsd4ysx9rayhh
+Public key: 3932455082170C613222E00717E6E41E22AC836D90F2A985FE17F078829CAC5E
+Account address: bcb_1gbkaoaa67ree6s47r194zmga9j4ok3pu69ko84zw7zih43bsd4ysx9rayhh
+
+-- MAINNET WALLETS --
+seed: 23A2C177E76018FEE0D76FDA82E5823B232BF3A9FEC53AFD3655E24796DA341B
+Private key: 6BB92DD72B1F02090CB71B59BE2DFAD198A513201A237DF928DEA2BFD230B356
+Public key: A550C1FE0CD7745886D970A2ECA384A50A613E569A7E485251AF4DF9CA7B677D
+Account address: bcb_3bcir9z1sound45fkw74xkjrbbace6z7f8myb3b75dtfz979psux16sbnqns
 
 
-New account seed:
-D7B324B3A25A0CB089F064CA103CADD12F469ADCB3E325A377A1EA03B12005BE
-bcb_1i7fg67o1scjp13xu94ge4izz7trg9fs7tgfbxwauwrcqbpctmpy4ux1pww5
+-- WINDOWS COMMANDS -- 
+1. Create 'build' folder in Source directory
+2. cd build
+3. cmake -DCMAKE_BUILD_TYPE=Release -DACTIVE_NETWORK=btcb_beta_network -DBoost_COMPILER="-vc141" -DBOOST_ROOT="C:/boost_1_67_0" -DBOOST_LIBRARYDIR="C:/boost_1_67_0/lib64-msvc-14.1" -G "Visual Studio 15 2017 Win64" -DIPHLPAPI_LIBRARY="C:/Program Files (x86)/Windows Kits/10/Lib/10.0.17763.0/um/x64/iphlpapi.lib" -DWINSOCK2_LIBRARY="C:/Program Files (x86)/Windows Kits/10/Lib/10.0.17763.0/um/x64/WS2_32.lib" -DBTCB_SIMD_OPTIMIZATIONS=TRUE -DBTCB_SECURE_RPC=TRUE  ..\. 
+4. cmake --build . --target ALL_BUILD --config Release -- /m:16 
 
-
-bootstrap.bat --with-libraries=filesystem,log,program_options,thread
-
-b2 --prefix=C:/boost-main/boost-build --build-dir=C:/boost-main/boost-build address-model=64 link=static runtime-link=static release stage install
-
-cmake bcb_node -DBoost_DEBUG=ON -DBOOST_ROOT="C:/boost-main/boost_1_67_0" -DBOOST_INCLUDEDIR=C:/boost-main/boost-build/include -DBOOST_LIBRARYDIR=C:/boost-main/boost-build/boost/bin.v2/libs -DCMAKE_BUILD_TYPE=Release -DACTIVE_NETWORK=nano_beta_network -DENABLE_AVX2=ON -DCRYPTOPP_CUSTOM=ON -DNANO_SIMD_OPTIMIZATIONS=OFF -DNANO_SECURE_RPC=ON
-
-cmake bcb_node -DBoost_DEBUG=ON -DBOOST_ROOT="C:/boost-main/boost_1_67_0" -DBOOST_INCLUDEDIR=C:/boost-main/boost-build/include/boost-1_67 -DBOOST_LIBRARYDIR=C:/boost-main/boost-build/lib -DCMAKE_BUILD_TYPE=Release -DACTIVE_NETWORK=nano_beta_network -DENABLE_AVX2=ON -DCRYPTOPP_CUSTOM=ON -DNANO_SIMD_OPTIMIZATIONS=OFF -DNANO_SECURE_RPC=ON
-
-
-
-
-
-cmake -DCMAKE_BUILD_TYPE=Release -DACTIVE_NETWORK=btcb_beta_network -DQt5_DIR="C:\Qt\5.9.8\msvc2017_64\lib\cmake\Qt5" -DBoost_COMPILER="-vc141" -DBOOST_ROOT="C:/boost_1_67_0" -DBOOST_LIBRARYDIR="C:/boost_1_67_0/lib64-msvc-14.1" -G "Visual Studio 15 2017 Win64" -DIPHLPAPI_LIBRARY="C:/Program Files (x86)/Windows Kits/10/Lib/10.0.17763.0/um/x64/iphlpapi.lib" -DWINSOCK2_LIBRARY="C:/Program Files (x86)/Windows Kits/10/Lib/10.0.17763.0/um/x64/WS2_32.lib" -DBTCB_SIMD_OPTIMIZATIONS=TRUE -DBTCB_SECURE_RPC=TRUE  ..\. 
-
-cmake --build . --target ALL_BUILD --config Release -- /m:16 
-
-cpack -G NSIS -C Release
-
-Signing Command:
+-- WINDOWS SIGNING COMMAND --
 signtool.exe sign /f bcb_cert.p12 /p "AB#&!6422bgh" /tr http://timestamp.digicert.com /td sha256 /fd sha256 /a C:\btcb_node.exe
 
 
-
+-- MAC INSTALLER BUILD COMMAND --
 electron-installer-dmg ./release-builds/Bitcoin\ Black\ Betanet\ Wallet-darwin-x64/Bitcoin\ Black\ Betanet\ Wallet.app/ ./BitcoinBlackBetanetWallet --icon=ember-electron/resources/icon.icns --overwrite
