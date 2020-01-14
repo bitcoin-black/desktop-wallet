@@ -27,7 +27,7 @@ const Promise = require('bluebird');
 const writeFileAtomic = Promise.promisify(require('write-file-atomic'));
 const jsonwebtoken = Promise.promisifyAll(require('jsonwebtoken'));
 const fs = Promise.promisifyAll(require('graceful-fs'), {
-  filter(name) {
+  filter (name) {
     return ['readFile'].includes(name);
   },
 });
@@ -61,7 +61,7 @@ const getLoopbackAddress = () =>
   new Promise((resolve, reject) => {
     const server = net.createServer();
     server.unref();
-    return server.listen(function Server(err) {
+    return server.listen(function Server (err) {
       if (err) {
         return reject(err);
       }
@@ -261,7 +261,7 @@ const forceKill = (child, timeout = 5000) => {
   child.unref();
 
   const interval = 500;
-  function poll() {
+  function poll () {
     try {
       process.kill(pid, 0);
       setTimeout(() => {
@@ -286,6 +286,15 @@ const startDaemon = async () => {
   const configPath = path.join(dataPath, 'config.json');
   const rpcConfigPath = path.join(dataPath, 'rpc_config.json');
   const loopbackAddress = await getLoopbackAddress();
+
+  // For V2, remove toml file on every restart
+  try {
+    fs.unlinkSync(path.join(dataPath, 'config-node.toml'))
+    fs.unlinkSync(path.join(dataPath, 'config-rpc.toml'))
+  } catch (e) {
+    // No need of handling here
+  }
+
   let config = {};
   try {
     config = await loadJsonFile(configPath);
@@ -365,7 +374,7 @@ const startDaemon = async () => {
   log.info(`Writing node configuration version ${configVersion}:`, configPath);
   await writeJsonFile(configPath, config, {
     mode: 0o600,
-    replacer(key, value) {
+    replacer (key, value) {
       return typeof value === 'object' ? value : String(value);
     },
   });
@@ -374,7 +383,7 @@ const startDaemon = async () => {
   log.info(`Writing node RPC configuration version ${rpcConfigVersion}:`, rpcConfigPath);
   await writeJsonFile(rpcConfigPath, rpcConfig, {
     mode: 0o600,
-    replacer(key, value) {
+    replacer (key, value) {
       return typeof value === 'object' ? value : String(value);
     },
   });
@@ -527,7 +536,7 @@ const startDaemon = async () => {
   });
 
   Object.defineProperty(global, 'isNodeStarted', {
-    get() {
+    get () {
       return server.listening && !child.killed;
     },
   });
@@ -543,7 +552,7 @@ const startDaemon = async () => {
   const proxyPort = 17076;
   return new Promise((resolve, reject) => {
     log.info(`Proxy server starting on ${loopbackAddress}:${proxyPort}`);
-    server.listen(proxyPort, loopbackAddress, function Server(err) {
+    server.listen(proxyPort, loopbackAddress, function Server (err) {
       if (err) {
         return reject(err);
       }

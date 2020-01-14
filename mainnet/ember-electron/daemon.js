@@ -287,6 +287,15 @@ const startDaemon = async () => {
   const configPath = path.join(dataPath, 'config.json');
   const rpcConfigPath = path.join(dataPath, 'rpc_config.json');
   const loopbackAddress = await getLoopbackAddress();
+
+  // For V2, remove toml file on every restart
+  try {
+    fs.unlinkSync(path.join(dataPath, 'config-node.toml'))
+    fs.unlinkSync(path.join(dataPath, 'config-rpc.toml'))
+  } catch (e) {
+    // No need of handling here
+  }
+
   let config = {};
   try {
     config = await loadJsonFile(configPath);
