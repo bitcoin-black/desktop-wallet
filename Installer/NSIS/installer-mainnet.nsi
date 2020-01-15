@@ -5,7 +5,7 @@
 # These three must be integers
 !define VERSIONMAJOR 2
 !define VERSIONMINOR 0
-!define VERSIONBUILD 0
+!define VERSIONBUILD 1
 # These will be displayed by the "Click here for support information" link in "Add/Remove Programs"
 # It is possible to use "mailto:" links in here to open the email client
 !define HELPURL "https://bitcoin.black/" # "Support Information" link
@@ -60,11 +60,11 @@ section "install"
 	writeUninstaller "$INSTDIR\uninstall.exe"
  
 	# Start Menu
-	createShortCut "$SMPROGRAMS\${APPNAME}.lnk" "$INSTDIR\Bitcoin-Black-Wallet.exe" "" "$INSTDIR\logo.ico"
-    createShortCut "$DESKTOP\${APPNAME}.lnk" "$INSTDIR\Bitcoin-Black-Wallet.exe" "" "$INSTDIR\logo.ico"
+	createShortCut "$SMPROGRAMS\${APPNAME}.lnk" "$INSTDIR\Bitcoin Black Wallet.exe" "" "$INSTDIR\logo.ico"
+    createShortCut "$DESKTOP\${APPNAME}.lnk" "$INSTDIR\Bitcoin Black Wallet.exe" "" "$INSTDIR\logo.ico"
     
     # Launch app
-    Exec "$INSTDIR\Bitcoin-Black-Wallet.exe"
+    Exec "$INSTDIR\Bitcoin Black Wallet.exe"
 
 	# Registry information for add/remove programs
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${COMPANYNAME} ${APPNAME}" "DisplayName" "${APPNAME}"
