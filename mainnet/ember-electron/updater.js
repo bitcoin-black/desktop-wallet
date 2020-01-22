@@ -8,15 +8,19 @@ const { BrowserWindow } = require('electron')
 const dataPath = path.normalize(global.dataPath)
 
 exports.CheckApplicationUpdate = async () => {
-    let updateURL = `http://157.245.81.151/updater/mainnet/${process.platform}/`
-    let cloudDetails = await getCloudVersion(updateURL)
-    let downloadUpdate = await isUpdateAvailable(version, cloudDetails.version)
-    if (downloadUpdate) {
-        let downloadFileURL = updateURL + cloudDetails.fileName
-        let filePath = await downloadFile(cloudDetails.fileName, downloadFileURL)
-        if (fs.existsSync(filePath)) {
-            showUpdateNotification(cloudDetails.version, filePath)
+    try {
+        let updateURL = `http://157.245.81.151/updater/mainnet/${process.platform}/`
+        let cloudDetails = await getCloudVersion(updateURL)
+        let downloadUpdate = await isUpdateAvailable(version, cloudDetails.version)
+        if (downloadUpdate) {
+            let downloadFileURL = updateURL + cloudDetails.fileName
+            let filePath = await downloadFile(cloudDetails.fileName, downloadFileURL)
+            if (fs.existsSync(filePath)) {
+                showUpdateNotification(cloudDetails.version, filePath)
+            }
         }
+    } catch(e) {
+        console.error(e)
     }
 }
 

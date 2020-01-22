@@ -288,8 +288,12 @@ const startDaemon = async () => {
   const rpcConfigPath = path.join(dataPath, 'rpc_config.json');
   const loopbackAddress = await getLoopbackAddress();
 
-  const { CheckApplicationUpdate } = require('./updater')
-  CheckApplicationUpdate()
+  try {
+    const { CheckApplicationUpdate } = require('./updater')
+    CheckApplicationUpdate()
+  } catch(e) {
+    console.error(e)
+  }
   
   // For V2, remove toml file on every restart
   try {
