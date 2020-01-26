@@ -13,7 +13,7 @@ export default class StatusTooltipComponent extends Component.extend(InViewportM
 
   @lt('status.peers.length', 1) isPeerless;
 
-  @gt('uncheckedPercentage', 0.01) isSyncing;
+  @gt('uncheckedPercentage', 0.06) isSyncing;
 
   @computed('status.blocks.{count,unchecked}')
   get uncheckedPercentage() {

@@ -41,7 +41,7 @@
         },
         "work_peers": "",
         "preconfigured_peers": [
-            "::ffff:206.189.143.185"
+            "peers.bitcoin.black"
         ],
         "preconfigured_representatives": [
             "bcb_3zscrcrgbusx7ck3pgu9xfe5fe5a6ecewguweh1dry7ic7xg9cnmfk1r6ceg",
