@@ -250,7 +250,7 @@ const run = async () => {
   const databasePath = path.join(dataPath, 'data.ldb');
   Object.defineProperty(global, 'isDataDownloaded', {
     get() {
-      return pathExists.sync(databasePath);
+      return true;
     },
   });
 
