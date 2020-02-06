@@ -9,17 +9,16 @@ const dataPath = path.normalize(global.dataPath)
 
 exports.CheckApplicationUpdate = async () => {
     try {
-        let updateURL = `http://157.245.81.151/updater/mainnet/${process.platform}/`
+        let updateURL = `https://wallet.bitcoinblack.info/updater/${process.platform}/update.json`
         let cloudDetails = await getCloudVersion(updateURL)
         let downloadUpdate = await isUpdateAvailable(version, cloudDetails.version)
         if (downloadUpdate) {
-            let downloadFileURL = updateURL + cloudDetails.fileName
-            let filePath = await downloadFile(cloudDetails.fileName, downloadFileURL)
+            let filePath = await downloadFile(cloudDetails.fileName, cloudDetails.fileURL)
             if (fs.existsSync(filePath)) {
                 showUpdateNotification(cloudDetails.version, filePath)
             }
         }
-    } catch(e) {
+    } catch (e) {
         console.error(e)
     }
 }
@@ -67,7 +66,7 @@ async function downloadFile (fileName, fileURL) {
 function getCloudVersion (updateURL) {
     return new Promise((resolve, reject) => {
         request.get({
-            url: `${updateURL}update.json`
+            url: updateURL
         }, (error, response) => {
             if (error || response.statusCode !== 200) {
                 log.error(error)
