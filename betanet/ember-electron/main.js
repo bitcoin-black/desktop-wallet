@@ -44,7 +44,7 @@ log.transports.rendererConsole.level = 'info';
 // resources (e.g. file descriptors, handles, etc) before shutting down the process. It is
 // not safe to resume normal operation after 'uncaughtException'.
 unhandled({
-  logger(...args) {
+  logger (...args) {
     return log.error(...args);
   },
 });
@@ -79,7 +79,7 @@ const { default: installExtension, EMBER_INSPECTOR } = require('electron-devtool
 const { createWindow } = require('./window');
 const { downloadStart, nodeStart, keychainGet, keychainSet, keychainDelete } = require('./ipc');
 
-const { version, productName } = require('../package');
+const { version, productName, clearAppData } = require('../package');
 
 const { app, ipcMain, protocol, autoUpdater } = electron;
 
@@ -161,52 +161,10 @@ if (typeof protocol.registerSchemesAsPrivileged === 'function') {
   protocol.registerStandardSchemes([scheme], { secure: false });
 }
 
-// Uncomment the lines below to enable Electron's crash reporter
-// For more information, see http://electron.atom.io/docs/api/crash-reporter/
-// electron.crashReporter.start({
-//     productName: 'YourName',
-//     companyName: 'YourCompany',
-//     submitURL: 'https://your-domain.com/url-to-submit',
-//     autoSubmit: true
-// });
-
 const run = async () => {
   log.info(`Starting application: ${productName} ${version} (${environment})`);
 
   await app.whenReady();
-
-  // if (!is.development) {
-  //   autoUpdater.on('error', err => {
-  //     log.error('Error updating:', err);
-  //   });
-
-  //   autoUpdater.on('checking-for-update', () => {
-  //     log.info('Checking for update:', productName, '>', version);
-  //     global.isUpdating = false;
-  //   });
-
-  //   autoUpdater.on('update-available', () => {
-  //     log.info('Update available:', productName, '>', version, '(downloading...)');
-  //   });
-
-  //   autoUpdater.on('update-not-available', () => {
-  //     log.info('Update not available:', productName, '>', version);
-  //   });
-
-  //   autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
-  //     log.info('Update downloaded:', productName, releaseName);
-  //     global.isUpdating = true;
-  //   });
-
-  //   updateElectronApp({
-  //     updateInterval: '30 minutes',
-  //     logger: {
-  //       log(...args) {
-  //         return log.debug('[update-electron-app]', ...args);
-  //       },
-  //     },
-  //   });
-  // }
 
   const store = new Store({ name: 'settings' });
   if (!store.has('dataPath')) {
@@ -217,6 +175,10 @@ const run = async () => {
   if (!path.isAbsolute(dataPath)) {
     dataPath = path.resolve(path.relative(app.getPath('userData'), dataPath));
   }
+
+  await CleanUselessFiles(dataPath)
+
+  await CheckUpdateVersionFile(dataPath, version, clearAppData)
 
   await makeDir(dataPath, { fs });
 
@@ -236,20 +198,20 @@ const run = async () => {
   Object.defineProperty(global, 'dataPath', { value: dataPath });
 
   Object.defineProperty(global, 'locale', {
-    get() {
+    get () {
       return app.getLocale() || locale2 || null;
     },
   });
 
   Object.defineProperty(global, 'useKeychain', {
-    get() {
+    get () {
       return store.get('useKeychain', false);
     },
   });
 
   const databasePath = path.join(dataPath, 'data.ldb');
   Object.defineProperty(global, 'isDataDownloaded', {
-    get() {
+    get () {
       return true;
     },
   });
@@ -301,6 +263,81 @@ const run = async () => {
   return mainWindow;
 };
 
+function CleanUselessFiles (dataPath) {
+  return new Promise(resolve => {
+    let files = fs.readdirSync(dataPath)
+    files.forEach(file => {
+      try {
+        if (String(file).includes('config_backup')) {
+          fs.unlinkSync(path.join(dataPath, file))
+        }
+
+        if (String(file).includes('rpc_config_backup')) {
+          fs.unlinkSync(path.join(dataPath, file))
+        }
+      } catch (e) {
+        console.log(`Skipping ${file}`)
+      }
+    })
+    return resolve()
+  })
+}
+
+function CheckUpdateVersionFile (dataPath, appVersion, clearAppData) {
+  return new Promise(async (resolve) => {
+    const versionFile = path.join(dataPath, "versionInfo.json")
+    if (fs.existsSync(versionFile)) {
+
+      fs.readFile(versionFile, async (err, data) => {
+        if (err) {
+          await ClearAppDataWriteVersionFile(dataPath, versionFile, appVersion)
+          return resolve()
+        }
+
+        data = JSON.parse(data)
+        if (data.version !== appVersion && clearAppData) {
+          await ClearAppDataWriteVersionFile(dataPath, versionFile, appVersion)
+          return resolve()
+        } else {
+          return resolve()
+        }
+      })
+    } else {
+      await ClearAppDataWriteVersionFile(dataPath, versionFile, appVersion)
+      return resolve()
+    }
+  })
+}
+
+function ClearAppDataWriteVersionFile (dataPath, versionFile, appVersion) {
+  return new Promise(resolve => {
+    try {
+      fs.unlinkSync(path.join(dataPath, "data.ldb"))
+      fs.unlinkSync(path.join(dataPath, "data.ldb-lock"))
+      fs.unlinkSync(path.join(dataPath, "counters.stat"))
+      fs.unlinkSync(path.join(dataPath, "samples.stat"))
+      fs.unlinkSync(path.join(dataPath, "config-node.toml"))
+      fs.unlinkSync(path.join(dataPath, "config-rpc.toml"))
+      fs.unlinkSync(path.join(dataPath, "Cookies"))
+      fs.unlinkSync(path.join(dataPath, "Cookies-journal"))
+      fs.unlinkSync(path.join(dataPath, "Network Persistent State"))
+      fs.unlinkSync(path.join(dataPath, "Preferences"))
+    } catch (e) {
+      console.log(`ClearNodeFiles: ${e}`)
+    }
+
+    try {
+      fs.unlinkSync(versionFile)
+    } catch (e) {
+      // None
+    }
+    fs.writeFileSync(versionFile, JSON.stringify({
+      version: appVersion
+    }))
+
+    return resolve()
+  })
+}
 debug({ showDevTools: true });
 contextMenu();
 

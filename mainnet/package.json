@@ -1,6 +1,7 @@
 {
   "name": "@bcb-wallet-company/bcb-wallet-desktop",
-  "version": "2.0.7",
+  "version": "2.0.8",
+  "clearAppData": true,
   "productName": "Bitcoin Black Wallet",
   "genericName": "Bitcoin Black Wallet",
   "description": "An ambitious bcb wallet for desktop and web.",
