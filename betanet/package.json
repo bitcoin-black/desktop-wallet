@@ -1,6 +1,6 @@
 {
   "name": "@bcb-wallet-company/bcb-wallet-desktop",
-  "version": "2.0.8",
+  "version": "2.1.0",
   "clearAppData": true,
   "productName": "Bitcoin Black Betanet Wallet",
   "genericName": "Bitcoin Black Betanet Wallet",

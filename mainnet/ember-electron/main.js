@@ -290,22 +290,55 @@ function CheckUpdateVersionFile (dataPath, appVersion, clearAppData) {
 
       fs.readFile(versionFile, async (err, data) => {
         if (err) {
-          await ClearAppDataWriteVersionFile(dataPath, versionFile, appVersion)
+          try {
+            await ClearAppDataWriteVersionFile(dataPath, versionFile, appVersion)
+            await copyDataFileToDataPath(dataPath)
+            return resolve()
+          } catch (e) {
+            console.error(e)
+            return resolve()
+          }
+        }
+
+        try {
+          data = JSON.parse(data)
+          if (data.version !== appVersion && clearAppData) {
+            await ClearAppDataWriteVersionFile(dataPath, versionFile, appVersion)
+            await copyDataFileToDataPath(dataPath)
+            return resolve()
+          } else {
+            return resolve()
+          }
+        } catch (e) {
+          console.error(e)
           return resolve()
         }
 
-        data = JSON.parse(data)
-        if (data.version !== appVersion && clearAppData) {
-          await ClearAppDataWriteVersionFile(dataPath, versionFile, appVersion)
-          return resolve()
-        } else {
-          return resolve()
-        }
       })
     } else {
-      await ClearAppDataWriteVersionFile(dataPath, versionFile, appVersion)
-      return resolve()
+      try {
+        await ClearAppDataWriteVersionFile(dataPath, versionFile, appVersion)
+        await copyDataFileToDataPath(dataPath)
+        return resolve()
+      } catch(e) {
+        console.error(e)
+        return resolve()
+      }
     }
+  })
+}
+
+function copyDataFileToDataPath (dataPath) {
+  return new Promise((resolve, reject) => {
+    let sourcePath = path.join(global.resourcesPath, 'data.ldb')
+    let targetPath = path.join(dataPath, 'data.ldb')
+    fs.copyFile(sourcePath, targetPath, (err) => {
+      if (err) {
+        return reject(err)
+      }
+
+      return resolve()
+    })
   })
 }
 
