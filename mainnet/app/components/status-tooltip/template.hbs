@@ -18,7 +18,8 @@
     </li>
     {{#if status.isFulfilled}}
       <li><b>{{t 'status.count'}}:</b> {{format-number status.blocks.count}}</li>
-      <li><b>{{t 'status.unchecked'}}:</b> {{format-number status.blocks.unchecked}}</li>
+      <li><b>{{t 'status.unchecked'}}:</b> 0 </li>
+      {{!-- <li><b>{{t 'status.unchecked'}}:</b> 0 {{format-number status.blocks.unchecked}}</li> --}}
       <li><b>{{t 'status.peers'}}:</b> {{format-number status.peers.length}}</li>
     {{/if}}
   </ul>

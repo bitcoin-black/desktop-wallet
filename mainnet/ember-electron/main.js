@@ -212,7 +212,7 @@ const run = async () => {
   const databasePath = path.join(dataPath, 'data.ldb');
   Object.defineProperty(global, 'isDataDownloaded', {
     get () {
-      return true;
+      return pathExists.sync(databasePath);
     },
   });
 
@@ -292,7 +292,6 @@ function CheckUpdateVersionFile (dataPath, appVersion, clearAppData) {
         if (err) {
           try {
             await ClearAppDataWriteVersionFile(dataPath, versionFile, appVersion)
-            await copyDataFileToDataPath(dataPath)
             return resolve()
           } catch (e) {
             console.error(e)
@@ -304,7 +303,6 @@ function CheckUpdateVersionFile (dataPath, appVersion, clearAppData) {
           data = JSON.parse(data)
           if (data.version !== appVersion && clearAppData) {
             await ClearAppDataWriteVersionFile(dataPath, versionFile, appVersion)
-            await copyDataFileToDataPath(dataPath)
             return resolve()
           } else {
             return resolve()
@@ -318,27 +316,12 @@ function CheckUpdateVersionFile (dataPath, appVersion, clearAppData) {
     } else {
       try {
         await ClearAppDataWriteVersionFile(dataPath, versionFile, appVersion)
-        await copyDataFileToDataPath(dataPath)
         return resolve()
       } catch(e) {
         console.error(e)
         return resolve()
       }
     }
-  })
-}
-
-function copyDataFileToDataPath (dataPath) {
-  return new Promise((resolve, reject) => {
-    let sourcePath = path.join(global.resourcesPath, 'data.ldb')
-    let targetPath = path.join(dataPath, 'data.ldb')
-    fs.copyFile(sourcePath, targetPath, (err) => {
-      if (err) {
-        return reject(err)
-      }
-
-      return resolve()
-    })
   })
 }
 

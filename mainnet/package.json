@@ -1,6 +1,6 @@
 {
   "name": "@bcb-wallet-company/bcb-wallet-desktop",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "clearAppData": true,
   "productName": "Bitcoin Black Wallet",
   "genericName": "Bitcoin Black Wallet",
@@ -123,6 +123,7 @@
     "server-destroy": "^1.0.1",
     "signal-exit": "^3.0.2",
     "spdy": "^4.0.0",
+    "tar": "^6.0.1",
     "tar-fs": "^2.0.0",
     "tar-stream": "^2.1.0",
     "to-executable-name": "^2.0.0",
