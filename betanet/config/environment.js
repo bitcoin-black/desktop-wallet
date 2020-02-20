@@ -29,7 +29,7 @@ module.exports = environment => {
 
     contentSecurityPolicy: {
       'default-src': ["'none'"],
-      'script-src': ["'self'", "'unsafe-eval'"],
+      'script-src': ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
       'font-src': ["'self'"],
       'connect-src': ["'self'", 'https://api.coinmarketcap.com'],
       'img-src': ["'self'", 'data:'],
@@ -39,7 +39,7 @@ module.exports = environment => {
       'frame-src': ["'self'"],
     },
 
-    contentSecurityPolicyMeta: true,
+    contentSecurityPolicyMeta: false,
 
     fontawesome: {
       icons: {

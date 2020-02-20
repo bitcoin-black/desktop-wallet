@@ -51,3 +51,5 @@ Installer/NSIS/betanet/
 Installer/NSIS/BCB Betanet Wallet Installer\.exe
 
 Installer/NSIS/mainnet/
+
+*.lock
